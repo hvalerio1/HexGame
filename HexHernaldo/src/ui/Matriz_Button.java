@@ -20,7 +20,7 @@ public class Matriz_Button extends javax.swing.JFrame  {
         initComponents();
         this.jPnl_board.setBackground(Color.white);
         this.jugarBoton.setVisible(false);
-        this.cambiarBoton.setVisible(false);
+        this.bt_CambiarTam.setVisible(false);
     }
 
     /**
@@ -37,10 +37,10 @@ public class Matriz_Button extends javax.swing.JFrame  {
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         generarBoton = new javax.swing.JButton();
-        comboBoxNum = new javax.swing.JComboBox<String>();
+        comboBoxNum = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jugarBoton = new javax.swing.JButton();
-        cambiarBoton = new javax.swing.JButton();
+        bt_CambiarTam = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,12 +62,10 @@ public class Matriz_Button extends javax.swing.JFrame  {
         );
 
         jLabel2.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Seleccionar el tamaño");
 
         generarBoton.setBackground(new java.awt.Color(0, 51, 204));
         generarBoton.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
-        generarBoton.setForeground(new java.awt.Color(0, 0, 0));
         generarBoton.setText("Generar");
         generarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,8 +75,7 @@ public class Matriz_Button extends javax.swing.JFrame  {
 
         comboBoxNum.setBackground(new java.awt.Color(51, 51, 255));
         comboBoxNum.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
-        comboBoxNum.setForeground(new java.awt.Color(0, 0, 0));
-        comboBoxNum.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "7", "8", "9", "10", "11", "12" }));
+        comboBoxNum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "7", "8", "9", "10", "11", "12" }));
         comboBoxNum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxNumActionPerformed(evt);
@@ -87,7 +84,6 @@ public class Matriz_Button extends javax.swing.JFrame  {
 
         jugarBoton.setBackground(new java.awt.Color(0, 255, 0));
         jugarBoton.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
-        jugarBoton.setForeground(new java.awt.Color(0, 0, 0));
         jugarBoton.setText("Jugar!");
         jugarBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,13 +91,12 @@ public class Matriz_Button extends javax.swing.JFrame  {
             }
         });
 
-        cambiarBoton.setBackground(new java.awt.Color(0, 51, 255));
-        cambiarBoton.setFont(new java.awt.Font("Dialog", 2, 14)); // NOI18N
-        cambiarBoton.setForeground(new java.awt.Color(0, 0, 0));
-        cambiarBoton.setText("Cambiar tamaño ");
-        cambiarBoton.addActionListener(new java.awt.event.ActionListener() {
+        bt_CambiarTam.setBackground(new java.awt.Color(0, 51, 255));
+        bt_CambiarTam.setFont(new java.awt.Font("Dialog", 2, 14)); // NOI18N
+        bt_CambiarTam.setText("Cambiar tamaño ");
+        bt_CambiarTam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cambiarBotonActionPerformed(evt);
+                bt_CambiarTamActionPerformed(evt);
             }
         });
 
@@ -129,7 +124,7 @@ public class Matriz_Button extends javax.swing.JFrame  {
                                 .addComponent(generarBoton))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(79, 79, 79)
-                                .addComponent(cambiarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(bt_CambiarTam, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -146,7 +141,7 @@ public class Matriz_Button extends javax.swing.JFrame  {
                         .addGap(18, 18, 18)
                         .addComponent(jugarBoton)
                         .addGap(30, 30, 30)
-                        .addComponent(cambiarBoton))
+                        .addComponent(bt_CambiarTam))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPnl_board, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -168,21 +163,23 @@ public class Matriz_Button extends javax.swing.JFrame  {
         this.jLabel2.setVisible(false);
         this.comboBoxNum.setVisible(false);
         this.jugarBoton.setVisible(true);
-        this.cambiarBoton.setVisible(true);
+        this.bt_CambiarTam.setVisible(true);
     }//GEN-LAST:event_generarBotonActionPerformed
 
     private void jugarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jugarBotonActionPerformed
         // TODO add your handling code here:
+        this.bt_CambiarTam.setVisible(false);
+        
     }//GEN-LAST:event_jugarBotonActionPerformed
 
-    private void cambiarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarBotonActionPerformed
+    private void bt_CambiarTamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_CambiarTamActionPerformed
         this.jPnl_board.removeAll(); //Aquí estoy borrando la matriz que había, pero si la vuelvo a generar lo hace mal
         this.jLabel2.setVisible(true);
         this.comboBoxNum.setVisible(true);
         this.generarBoton.setVisible(true);
         this.jugarBoton.setVisible(false);
-        this.cambiarBoton.setVisible(false);
-    }//GEN-LAST:event_cambiarBotonActionPerformed
+        this.bt_CambiarTam.setVisible(false);
+    }//GEN-LAST:event_bt_CambiarTamActionPerformed
 
     /*
      * @param args the command line arguments
@@ -250,8 +247,8 @@ public class Matriz_Button extends javax.swing.JFrame  {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bt_CambiarTam;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton cambiarBoton;
     private javax.swing.JComboBox<String> comboBoxNum;
     private javax.swing.JButton generarBoton;
     private javax.swing.JLabel jLabel2;

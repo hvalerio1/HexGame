@@ -175,13 +175,12 @@ public class SigIn extends javax.swing.JDialog {
                 //ex.printStackTrace();
             }
 //            JOptionPane.showMessageDialog(null, "Instrucciones.\n1-Elija el nivel en que desea jugar.\n2-Complete los campos, con solamente una letra por casilla.\n3-Presione el botón 'verificar' cuando haya finalizado para revisar el crucigrama.");
-//            Level lvl = new Level(null, true);
-//            lvl.setVisible(true);
+            Matriz_Button matriz = new Matriz_Button();
+            matriz.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "El nombre de usuario ya está registrado");
         }
 
-//        level.setVisible(true);
     }//GEN-LAST:event_btNextActionPerformed
 
     private void btBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBackActionPerformed

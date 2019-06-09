@@ -73,11 +73,11 @@ public class MatrizBotton extends javax.swing.JFrame {
         jpButton.setLayout(jpButtonLayout);
         jpButtonLayout.setHorizontalGroup(
             jpButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 691, Short.MAX_VALUE)
+            .addGap(0, 774, Short.MAX_VALUE)
         );
         jpButtonLayout.setVerticalGroup(
             jpButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 465, Short.MAX_VALUE)
+            .addGap(0, 498, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

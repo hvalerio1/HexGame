@@ -13,7 +13,7 @@ public class Matriz_Button extends javax.swing.JFrame  {
     private HexButton[][] matriz;
     private int size = 7;
 
-    /**
+    /*
      * Creates new form Matriz_Button
      */
     public Matriz_Button() {

@@ -1,4 +1,9 @@
-package Logic;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package logic;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -10,7 +15,12 @@ import java.awt.Polygon;
 import java.awt.Rectangle;
 import javax.swing.JButton;
 
-public class Button extends JButton {
+/**
+ *
+ * @author mi pc
+ * @version June 08, 2019
+ */
+public class HexButton extends JButton {
 
     private static final long serialVersionUID = 8703517515706326251L;
     Polygon bounds;
@@ -19,12 +29,11 @@ public class Button extends JButton {
 
     /**
      * Creates a hexagonal button with a single character label
-     *
      * @param character
      */
-    public Button() {
+    public HexButton(Character character) {
         this.calculateBounds();
-        this.setBackground(Color.white);
+        this.setBackground(Color.YELLOW);
         this.setForeground(Color.RED);
         this.character = character;
         this.clicked = false;
@@ -33,10 +42,9 @@ public class Button extends JButton {
         this.setContentAreaFilled(false);
         this.setSize(40, 40);
     }
-
+    
     /**
      * Creates a hexagon of certain height / width and ratio multiplier
-     *
      * @param width
      * @param height
      * @param ratio
@@ -45,14 +53,14 @@ public class Button extends JButton {
     private Polygon hexagon(int width, int height, double ratio) {
         Polygon hexagon = new Polygon();
         for (int i = 0; i < 6; i++) {
-            int x = width / 2 + (int) ((width - 2) / 2 * Math.cos(i * 2 * Math.PI / 6) * ratio);
-            int y = height / 2 + (int) ((height - 2) / 2 * Math.sin(i * 2 * Math.PI / 6) * ratio);
-            hexagon.addPoint(y, x);
-        }
+            int x = width / 2 + (int)((width - 2) / 2 * Math.cos(i * 2 * Math.PI / 6) * ratio);
+            int y = height / 2 + (int)((height - 2) / 2 * Math.sin(i * 2 * Math.PI / 6) * ratio);            
+            hexagon.addPoint(x,y);
+        }        
         return hexagon;
     }
-
-    private void calculateBounds() {
+    
+    private void calculateBounds() {                
         this.bounds = this.hexagon(this.getWidth(), this.getHeight(), 1.0);
     }
 
@@ -65,8 +73,7 @@ public class Button extends JButton {
     }
 
     /**
-     * Returns whether supplied x,y coordinates is within the bounds of this
-     * button.
+     * Returns whether supplied x,y coordinates is within the bounds of this button.
      */
     @Override
     public boolean contains(int x, int y) {
@@ -114,39 +121,41 @@ public class Button extends JButton {
      */
     @Override
     protected void paintComponent(Graphics graphics) {
-
-//         Draw the black border
+        
+        // Draw the black border
         graphics.setColor(Color.BLACK);
-        Polygon stroke = this.hexagon(getHeight(), getWidth(), 1.05);
+        Polygon stroke = this.hexagon(getWidth(), getHeight(), 1.05);
         graphics.drawPolygon(stroke);
         graphics.fillPolygon(stroke);
 
-        // Draw the inside background
-        Polygon inside = this.hexagon(getHeight(), getWidth(), 0.9);
-        graphics.setColor(getBackground());
-        graphics.drawPolygon(inside);
-        graphics.fillPolygon(inside);
-
+//        // Draw the inside background
+//        Polygon inside = this.hexagon(getWidth(), getHeight(), 0.9);
+//        graphics.setColor(getBackground());
+//        graphics.drawPolygon(inside);
+//        graphics.fillPolygon(inside);
+//        
 //        // Draw the label
 //        Font font = new Font("Arial", Font.BOLD, 64);
 //        graphics.setFont(font);
 //        graphics.setColor(getForeground());
-//        FontMetrics fontMetrics = getFontMetrics(font);
+//        
+//        FontMetrics fontMetrics = getFontMetrics( font );
 //        int width = fontMetrics.stringWidth(this.character + "");
 //        int height = fontMetrics.getHeight();
-        //mete el caracter dentro de la figura
-//        graphics.drawString(this.character + "", (getWidth() - width) / 2, (getHeight() + height - 25) / 2);
+//        
+//        graphics.drawString(this.character + "", (getWidth() - width) / 2 , (getHeight() + height - 25) / 2);
+        
     }
-
+    
     /**
      * Performs some visual changes and changes the logic clicked state.
      */
     public void click() {
         this.clicked = true;
         this.setBackground(Color.MAGENTA);
-        this.setForeground(Color.BLACK);
+        this.setForeground(Color.BLACK);        
     }
-
+    
     /**
      * Returns the clicked state of the button
      */

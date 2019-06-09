@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package ui;
 
 /**
  *
  * @author Jenner Rodriguez
  */
-import FileManagerBinary.ReaderManager;
-import static Main.Main.listManager;
+import fileManagerBinary.ReaderManager;
+import static ui.Main.listManager;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 
@@ -124,21 +124,14 @@ public class Login extends javax.swing.JDialog {
             System.err.println(ex.getMessage());
             //ex.printStackTrace();
         }
-        int account = 0;
         for (int i = 0; i < listManager.getSize(); i++) {
             if (txtUsername.getText().equals(listManager.getUserList()[i].getUser()) && txtPassword.getText().equals(listManager.getUserList()[i].getPassword())) {
-                account++;
+                
             } else {
-                account = 0;
+                JOptionPane.showMessageDialog(null, "El usuario no existe.");
             }
     }//GEN-LAST:event_btNextActionPerformed
-        if(account >=1){
-            JOptionPane.showMessageDialog(null, "Instrucciones.\n1-Elija el nivel en que desea jugar.\n2-Complete los campos, con solamente una letra por casilla.\n3-Presione el botón 'verificar' cuando haya finalizado para revisar el crucigrama.");
-            Level lvl = new Level(null,true);
-            lvl.setVisible(true);
-        }else{
-            JOptionPane.showMessageDialog(null, "El usuario no existe.");
-        }
+
             
     
     }

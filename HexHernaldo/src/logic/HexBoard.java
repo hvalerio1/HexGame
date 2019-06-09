@@ -1,35 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package Logic;
 
-/**
- *
- * @author Jenner Rodriguez
+package logic;
+
+import java.util.LinkedList;
+import java.util.Stack;
+
+/*
+ * @author Estudiante
  */
-public class Board {
+public class HexBoard {
 
     private int size;
-    private Node aux;    
+    private HexNode aux;    
     private int node_counter;
 
-    public Board(int size) {
+    public HexBoard(int size) {
         this.size = size;
         this.node_counter = 1;
         this.aux = null;
     }
 
     public void CreateBoard() {
-        Node node = null;
+        HexNode node = null;
         int levels = (size * 2) - 1;
         for (int i = 0; i < size; i++) { // half of the board
             
             node_counter++; // quantity of node to create
             
             for (int j = 1; j <= node_counter; j++) {
-                node = new Node();
+                node = new HexNode();
                 if (aux == null) {
                     aux = node;
                 } else {
@@ -57,14 +55,14 @@ public class Board {
             while (aux.getLeft() != null) {
                 aux = aux.getLeft();
             }            
-        } //for (izdfszvcxnt i = 0; i < size; i++) { // half of the board
+        } //for (int i = 0; i < size; i++) { // half of the board
         
         for (int i = 0; i < (size-1); i++) {
             
             node_counter--; // quantity of node to create
             
             for (int j = node_counter; j > 0; j--) {
-                node = new Node();
+                node = new HexNode();
                 
                 if (j == node_counter) { // first node to create
                     node.setDown_left(aux);                                
@@ -72,7 +70,7 @@ public class Board {
                     node.setDown_right(aux.getRight());
                     aux.getRight().setUp_left(node);
                     aux = aux.getRight();                                    
-                } else { // Middle node to create                    
+                } else { // next node to create                    
                     node.setLeft(aux.getUp_left());
                     aux.getUp_left().setRight(node);
                     node.setDown_left(aux);

@@ -3,19 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hexhernaldo;
+package ui;
+
+import dataSet.UserList;
 
 /**
  *
- * @author Jenner Rodriguez
+ * @author mi pc
  */
-public class HexHernaldo {
-
-    /**
-     * @param args the command line arguments
-     */
+public class Main {
+     public static UserList listManager = new UserList();
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+        Index index = new Index();
+        index.setVisible(true);
     }
     
 }

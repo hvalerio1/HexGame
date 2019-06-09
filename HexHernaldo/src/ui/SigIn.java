@@ -3,16 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package ui;
 
-import Dataset.User;
-import Dataset.UserList;
-import FileManagerBinary.ReaderManager;
-import static Main.Main.listManager;
-import FileManagerBinary.WriterManager;
+import dataSet.User;
+import fileManagerBinary.ReaderManager;
+import static ui.Main.listManager;
+import fileManagerBinary.WriterManager;
 import java.io.IOException;
 import javax.swing.JOptionPane;
-import Validations.Validations;
 
 /**
  *
@@ -20,7 +18,6 @@ import Validations.Validations;
  */
 public class SigIn extends javax.swing.JDialog {
 
-    Validations check = new Validations();
 
     /**
      * Creates new form SigIn
@@ -121,7 +118,7 @@ public class SigIn extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNextActionPerformed
-        Level level = new Level(null, true);
+
         ReaderManager reader = new ReaderManager();
         String password = txtPassword.getText();
         String user = txtUsername.getText();
@@ -177,9 +174,9 @@ public class SigIn extends javax.swing.JDialog {
                 System.err.println(ex.getMessage());
                 //ex.printStackTrace();
             }
-            JOptionPane.showMessageDialog(null, "Instrucciones.\n1-Elija el nivel en que desea jugar.\n2-Complete los campos, con solamente una letra por casilla.\n3-Presione el botón 'verificar' cuando haya finalizado para revisar el crucigrama.");
-            Level lvl = new Level(null, true);
-            lvl.setVisible(true);
+//            JOptionPane.showMessageDialog(null, "Instrucciones.\n1-Elija el nivel en que desea jugar.\n2-Complete los campos, con solamente una letra por casilla.\n3-Presione el botón 'verificar' cuando haya finalizado para revisar el crucigrama.");
+//            Level lvl = new Level(null, true);
+//            lvl.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "El nombre de usuario ya está registrado");
         }

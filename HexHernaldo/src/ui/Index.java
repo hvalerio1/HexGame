@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package ui;
 
 /**
  *
@@ -61,11 +61,11 @@ public class Index extends javax.swing.JFrame {
             }
         });
 
-        lbNameGame.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
-        lbNameGame.setText("Crucigrama");
+        lbNameGame.setFont(new java.awt.Font("Sylfaen", 0, 36)); // NOI18N
+        lbNameGame.setText("Hex");
 
         lbNameJimmy.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
-        lbNameJimmy.setText("Jimmy Avila");
+        lbNameJimmy.setText("Erick Vindas");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -83,9 +83,6 @@ public class Index extends javax.swing.JFrame {
                         .addGap(218, 218, 218)
                         .addComponent(lbWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(251, 251, 251)
-                        .addComponent(lbNameGame))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lbNameH))
                     .addGroup(layout.createSequentialGroup()
@@ -95,6 +92,10 @@ public class Index extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(lbNameJimmy, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbNameGame, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(203, 203, 203))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

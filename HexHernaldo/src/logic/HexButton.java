@@ -55,7 +55,7 @@ public class HexButton extends JButton {
         for (int i = 0; i < 6; i++) {
             int x = width / 2 + (int)((width - 2) / 2 * Math.cos(i * 2 * Math.PI / 6) * ratio);
             int y = height / 2 + (int)((height - 2) / 2 * Math.sin(i * 2 * Math.PI / 6) * ratio);            
-            hexagon.addPoint(x,y);
+            hexagon.addPoint(y,x);
         }        
         return hexagon;
     }

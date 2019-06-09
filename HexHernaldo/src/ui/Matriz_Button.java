@@ -228,16 +228,16 @@ public class Matriz_Button extends javax.swing.JFrame  {
                 if (i == 0 || i == matriz.length - 1) {
                     matriz[i][j].setBackground(Color.red);
                     matriz[i][j].setBounds(x, y, 40, 40);
+                    matriz[i][j].setEnabled(false);
                     this.jPnl_board.add(matriz[i][j]);
                 } else if (j == 0 || j == matriz.length - 1) {
-
                     matriz[i][j].setBackground(Color.blue);
                     matriz[i][j].setBounds(x, y, 40, 40);
+                    matriz[i][j].setEnabled(false);
                     this.jPnl_board.add(matriz[i][j]);
                 } else {
                     matriz[i][j].setBounds(x, y, 40, 40);
                     this.jPnl_board.add(matriz[i][j]);
-                    matriz[i][j].addActionListener(comboBoxNum);
                 }
                 x += 32;
             }

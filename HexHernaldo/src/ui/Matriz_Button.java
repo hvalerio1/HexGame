@@ -1,4 +1,3 @@
-
 package ui;
 
 import java.awt.Button;
@@ -10,12 +9,10 @@ import logic.HexButton;
  * @author Cracks
  */
 public class Matriz_Button extends javax.swing.JFrame {
-    
+
     private HexButton[][] matriz;
-    private int x = 40;
-    private int y = 0;
     private int size = 7;
-    
+
     /**
      * Creates new form Matriz_Button
      */
@@ -160,7 +157,7 @@ public class Matriz_Button extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void comboBoxNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxNumActionPerformed
-        
+
     }//GEN-LAST:event_comboBoxNumActionPerformed
 
     private void generarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarBotonActionPerformed
@@ -217,14 +214,18 @@ public class Matriz_Button extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               new Matriz_Button().setVisible(true);
+                new Matriz_Button().setVisible(true);
             }
         });
     }
 
     private void setMatriz(int size) {
+        int x = 40;
+        int y = 0;
         matriz = new HexButton[size + 2][size + 2];
-        for (int i = 0; i < matriz.length; i++) {
+        for (int i = 0;
+                i < matriz.length;
+                i++) {
             for (int j = 0; j < matriz[0].length; j++) {
                 matriz[i][j] = new HexButton('1');
                 if (i == 0 || i == matriz.length - 1) {

@@ -13,6 +13,8 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Polygon;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 /**
@@ -20,7 +22,7 @@ import javax.swing.JButton;
  * @author mi pc
  * @version June 08, 2019
  */
-public class HexButton extends JButton {
+public class HexButton extends JButton implements ActionListener{
 
     private static final long serialVersionUID = 8703517515706326251L;
     Polygon bounds;
@@ -29,9 +31,10 @@ public class HexButton extends JButton {
 
     /**
      * Creates a hexagonal button with a single character label
+     *
      * @param character
      */
-    public HexButton(Character character) {
+    public HexButton() {
         this.calculateBounds();
         this.setBackground(Color.white);
         this.setForeground(Color.RED);
@@ -41,10 +44,12 @@ public class HexButton extends JButton {
         this.setBorderPainted(true);
         this.setContentAreaFilled(false);
         this.setSize(40, 40);
+        addActionListener((ActionListener) this);
     }
-    
+
     /**
      * Creates a hexagon of certain height / width and ratio multiplier
+     *
      * @param width
      * @param height
      * @param ratio
@@ -53,14 +58,14 @@ public class HexButton extends JButton {
     private Polygon hexagon(int width, int height, double ratio) {
         Polygon hexagon = new Polygon();
         for (int i = 0; i < 6; i++) {
-            int x = width / 2 + (int)((width - 2) / 2 * Math.cos(i * 2 * Math.PI / 6) * ratio);
-            int y = height / 2 + (int)((height - 2) / 2 * Math.sin(i * 2 * Math.PI / 6) * ratio);            
-            hexagon.addPoint(y,x);
-        }        
+            int x = width / 2 + (int) ((width - 2) / 2 * Math.cos(i * 2 * Math.PI / 6) * ratio);
+            int y = height / 2 + (int) ((height - 2) / 2 * Math.sin(i * 2 * Math.PI / 6) * ratio);
+            hexagon.addPoint(y, x);
+        }
         return hexagon;
     }
-    
-    private void calculateBounds() {                
+
+    private void calculateBounds() {
         this.bounds = this.hexagon(this.getWidth(), this.getHeight(), 1.0);
     }
 
@@ -73,7 +78,8 @@ public class HexButton extends JButton {
     }
 
     /**
-     * Returns whether supplied x,y coordinates is within the bounds of this button.
+     * Returns whether supplied x,y coordinates is within the bounds of this
+     * button.
      */
     @Override
     public boolean contains(int x, int y) {
@@ -121,7 +127,7 @@ public class HexButton extends JButton {
      */
     @Override
     protected void paintComponent(Graphics graphics) {
-        
+
         // Draw the black border
         graphics.setColor(Color.BLACK);
         Polygon stroke = this.hexagon(getWidth(), getHeight(), 1.05);
@@ -133,7 +139,7 @@ public class HexButton extends JButton {
         graphics.setColor(getBackground());
         graphics.drawPolygon(inside);
         graphics.fillPolygon(inside);
-        
+
 //        // Draw the label
 //        Font font = new Font("Arial", Font.BOLD, 64);
 //        graphics.setFont(font);
@@ -144,23 +150,29 @@ public class HexButton extends JButton {
 //        int height = fontMetrics.getHeight();
 //        
 //        graphics.drawString(this.character + "", (getWidth() - width) / 2 , (getHeight() + height - 25) / 2);
-        
     }
-    
+
     /**
      * Performs some visual changes and changes the logic clicked state.
      */
     public void click() {
         this.clicked = true;
         this.setBackground(Color.MAGENTA);
-        this.setForeground(Color.BLACK);        
+        this.setForeground(Color.BLACK);
     }
-    
+
     /**
      * Returns the clicked state of the button
      */
     public Boolean isClicked() {
         return this.clicked;
+    }
+    
+    //Editar este metodo para que cuando sea jugador 1 marque en azul, y jugador 2 marque en rojo
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        //Se asigna el color de fondo azul
+        setBackground(Color.BLUE);
     }
 
 }

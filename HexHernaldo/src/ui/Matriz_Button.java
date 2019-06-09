@@ -1,14 +1,14 @@
 package ui;
 
-import java.awt.Button;
 import java.awt.Color;
-import javax.swing.JPanel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import logic.HexButton;
 
 /**
  * @author Cracks
  */
-public class Matriz_Button extends javax.swing.JFrame {
+public class Matriz_Button extends javax.swing.JFrame  {
 
     private HexButton[][] matriz;
     private int size = 7;
@@ -227,7 +227,7 @@ public class Matriz_Button extends javax.swing.JFrame {
                 i < matriz.length;
                 i++) {
             for (int j = 0; j < matriz[0].length; j++) {
-                matriz[i][j] = new HexButton('1');
+                matriz[i][j] = new HexButton();
                 if (i == 0 || i == matriz.length - 1) {
                     matriz[i][j].setBackground(Color.red);
                     matriz[i][j].setBounds(x, y, 40, 40);
@@ -240,6 +240,7 @@ public class Matriz_Button extends javax.swing.JFrame {
                 } else {
                     matriz[i][j].setBounds(x, y, 40, 40);
                     this.jPnl_board.add(matriz[i][j]);
+                    matriz[i][j].addActionListener(comboBoxNum);
                 }
                 x += 32;
             }
@@ -259,4 +260,6 @@ public class Matriz_Button extends javax.swing.JFrame {
     private javax.swing.JPanel jPnl_board;
     private javax.swing.JButton jugarBoton;
     // End of variables declaration//GEN-END:variables
+
+    
 }

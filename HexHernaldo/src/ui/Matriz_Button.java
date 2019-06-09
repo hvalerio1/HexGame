@@ -52,7 +52,7 @@ public class Matriz_Button extends javax.swing.JFrame {
         jPnl_boardLayout.setHorizontalGroup(
             jPnl_boardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPnl_boardLayout.createSequentialGroup()
-                .addContainerGap(681, Short.MAX_VALUE)
+                .addContainerGap(679, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(69, 69, 69))
         );
@@ -61,7 +61,7 @@ public class Matriz_Button extends javax.swing.JFrame {
             .addGroup(jPnl_boardLayout.createSequentialGroup()
                 .addGap(64, 64, 64)
                 .addComponent(jLabel3)
-                .addGap(0, 352, Short.MAX_VALUE))
+                .addGap(0, 420, Short.MAX_VALUE))
         );
 
         jLabel2.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
@@ -123,15 +123,15 @@ public class Matriz_Button extends javax.swing.JFrame {
                         .addComponent(jPnl_board, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(77, 77, 77)
+                                .addGap(79, 79, 79)
                                 .addComponent(jugarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
+                                .addGap(64, 64, 64)
                                 .addComponent(comboBoxNum, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(33, 33, 33)
                                 .addComponent(generarBoton))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(77, 77, 77)
+                                .addGap(79, 79, 79)
                                 .addComponent(cambiarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
@@ -140,19 +140,20 @@ public class Matriz_Button extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPnl_board, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
+                        .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(comboBoxNum, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(generarBoton))
                         .addGap(18, 18, 18)
                         .addComponent(jugarBoton)
                         .addGap(30, 30, 30)
-                        .addComponent(cambiarBoton)))
-                .addContainerGap(83, Short.MAX_VALUE))
+                        .addComponent(cambiarBoton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPnl_board, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();

@@ -31,12 +31,23 @@ public class MatrizBotton extends javax.swing.JFrame {
         matriz = new Button[size + 2][size + 2];
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[0].length; j++) {
-                matriz[i][j] = new Button(' ');
-                matriz[i][j].setBackground(Color.white);
-                matriz[i][j].setBounds(x, y, 40, 40);
-                jpButton.add(matriz[i][j]);
-                x += 32;
+                if (i == 0 || i == matriz.length - 1) {
+                    matriz[i][j] = new Button();
+                    matriz[i][j].setBackground(Color.red);
+                    matriz[i][j].setBounds(x, y, 40, 40);
+                    jpButton.add(matriz[i][j]);
+                } else if (j == 0 || j == matriz.length - 1) {
+                    matriz[i][j] = new Button();
+                    matriz[i][j].setBackground(Color.blue);
+                    matriz[i][j].setBounds(x, y, 40, 40);
+                    jpButton.add(matriz[i][j]);
+                } else {
+                    matriz[i][j] = new Button();
+                    matriz[i][j].setBounds(x, y, 40, 40);
+                    jpButton.add(matriz[i][j]);
 
+                }
+                x += 32;
             }
             x = 56 + (i * 15);
             y += 29;

@@ -22,9 +22,9 @@ public class Button extends JButton {
      *
      * @param character
      */
-    public Button(Character character) {
+    public Button() {
         this.calculateBounds();
-        this.setBackground(Color.YELLOW);
+        this.setBackground(Color.white);
         this.setForeground(Color.RED);
         this.character = character;
         this.clicked = false;

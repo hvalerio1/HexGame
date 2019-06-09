@@ -38,7 +38,7 @@ public class HexButton extends JButton {
         this.character = character;
         this.clicked = false;
         this.setOpaque(true);
-        this.setBorderPainted(false);
+        this.setBorderPainted(true);
         this.setContentAreaFilled(false);
         this.setSize(40, 40);
     }
@@ -128,12 +128,12 @@ public class HexButton extends JButton {
         graphics.drawPolygon(stroke);
         graphics.fillPolygon(stroke);
 
-//        // Draw the inside background
-//        Polygon inside = this.hexagon(getWidth(), getHeight(), 0.9);
-//        graphics.setColor(getBackground());
-//        graphics.drawPolygon(inside);
-//        graphics.fillPolygon(inside);
-//        
+        // Draw the inside background
+        Polygon inside = this.hexagon(getWidth(), getHeight(), 0.9);
+        graphics.setColor(getBackground());
+        graphics.drawPolygon(inside);
+        graphics.fillPolygon(inside);
+        
 //        // Draw the label
 //        Font font = new Font("Arial", Font.BOLD, 64);
 //        graphics.setFont(font);

@@ -1,30 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ui;
 
 import java.awt.Button;
 import java.awt.Color;
+import javax.swing.JPanel;
 import logic.HexButton;
 
 /**
- *
- * @author mi pc
+ * @author Cracks
  */
 public class Matriz_Button extends javax.swing.JFrame {
     
     private HexButton[][] matriz;
     private int x = 40;
     private int y = 0;
-
+    private int size = 7;
+    
     /**
      * Creates new form Matriz_Button
      */
     public Matriz_Button() {
         initComponents();
-        setMatriz(8);
+        this.jPnl_board.setBackground(Color.white);
+        this.jugarBoton.setVisible(false);
+        this.cambiarBoton.setVisible(false);
     }
 
     /**
@@ -36,11 +35,15 @@ public class Matriz_Button extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPnl_board = new javax.swing.JPanel();
-        jBttn_size = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jCmbBx_size = new javax.swing.JComboBox<>();
+        generarBoton = new javax.swing.JButton();
+        comboBoxNum = new javax.swing.JComboBox<String>();
+        jLabel4 = new javax.swing.JLabel();
+        jugarBoton = new javax.swing.JButton();
+        cambiarBoton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,69 +51,142 @@ public class Matriz_Button extends javax.swing.JFrame {
         jPnl_board.setLayout(jPnl_boardLayout);
         jPnl_boardLayout.setHorizontalGroup(
             jPnl_boardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 517, Short.MAX_VALUE)
+            .addGroup(jPnl_boardLayout.createSequentialGroup()
+                .addContainerGap(681, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(69, 69, 69))
         );
         jPnl_boardLayout.setVerticalGroup(
             jPnl_boardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 321, Short.MAX_VALUE)
+            .addGroup(jPnl_boardLayout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(jLabel3)
+                .addGap(0, 352, Short.MAX_VALUE))
         );
 
-        jBttn_size.setText("Cambiar");
+        jLabel2.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Seleccionar el tamaño");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("TABLERO DE JUEGO");
+        generarBoton.setBackground(new java.awt.Color(0, 51, 204));
+        generarBoton.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
+        generarBoton.setForeground(new java.awt.Color(0, 0, 0));
+        generarBoton.setText("Generar");
+        generarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generarBotonActionPerformed(evt);
+            }
+        });
 
-        jLabel2.setText("Cambiar el tamaño ");
+        comboBoxNum.setBackground(new java.awt.Color(51, 51, 255));
+        comboBoxNum.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
+        comboBoxNum.setForeground(new java.awt.Color(0, 0, 0));
+        comboBoxNum.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "7", "8", "9", "10", "11", "12" }));
+        comboBoxNum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxNumActionPerformed(evt);
+            }
+        });
 
-        jCmbBx_size.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "7", "8", "9", "10", "11", "12" }));
+        jugarBoton.setBackground(new java.awt.Color(0, 255, 0));
+        jugarBoton.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
+        jugarBoton.setForeground(new java.awt.Color(0, 0, 0));
+        jugarBoton.setText("Jugar!");
+        jugarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jugarBotonActionPerformed(evt);
+            }
+        });
+
+        cambiarBoton.setBackground(new java.awt.Color(0, 51, 255));
+        cambiarBoton.setFont(new java.awt.Font("Dialog", 2, 14)); // NOI18N
+        cambiarBoton.setForeground(new java.awt.Color(0, 0, 0));
+        cambiarBoton.setText("Cambiar tamaño ");
+        cambiarBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cambiarBotonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(821, 821, 821)
+                        .addComponent(jLabel2)
+                        .addGap(9, 9, 9))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
+                        .addGap(15, 15, 15)
                         .addComponent(jPnl_board, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCmbBx_size, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jBttn_size))
-                        .addGap(0, 5, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)))
-                .addGap(67, 67, 67))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(77, 77, 77)
+                                .addComponent(jugarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(62, 62, 62)
+                                .addComponent(comboBoxNum, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33)
+                                .addComponent(generarBoton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(77, 77, 77)
+                                .addComponent(cambiarBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPnl_board, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comboBoxNum, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(generarBoton))
+                        .addGap(18, 18, 18)
+                        .addComponent(jugarBoton)
                         .addGap(30, 30, 30)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCmbBx_size, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBttn_size))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jPnl_board, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(101, Short.MAX_VALUE))
+                        .addComponent(cambiarBoton)))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
+    private void comboBoxNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxNumActionPerformed
+        
+    }//GEN-LAST:event_comboBoxNumActionPerformed
+
+    private void generarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarBotonActionPerformed
+        this.size = (int) Integer.parseInt((String) comboBoxNum.getSelectedItem());
+        matriz = null;
+        setMatriz(size);
+        this.generarBoton.setVisible(false);
+        this.jLabel2.setVisible(false);
+        this.comboBoxNum.setVisible(false);
+        this.jugarBoton.setVisible(true);
+        this.cambiarBoton.setVisible(true);
+    }//GEN-LAST:event_generarBotonActionPerformed
+
+    private void jugarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jugarBotonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jugarBotonActionPerformed
+
+    private void cambiarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cambiarBotonActionPerformed
+        this.jPnl_board.removeAll(); //Aquí estoy borrando la matriz que había, pero si la vuelvo a generar lo hace mal
+        this.jLabel2.setVisible(true);
+        this.comboBoxNum.setVisible(true);
+        this.generarBoton.setVisible(true);
+        this.jugarBoton.setVisible(false);
+        this.cambiarBoton.setVisible(false);
+    }//GEN-LAST:event_cambiarBotonActionPerformed
+
+    /*
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -140,7 +216,7 @@ public class Matriz_Button extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Matriz_Button().setVisible(true);
+               new Matriz_Button().setVisible(true);
             }
         });
     }
@@ -162,7 +238,6 @@ public class Matriz_Button extends javax.swing.JFrame {
                 } else {
                     matriz[i][j].setBounds(x, y, 40, 40);
                     this.jPnl_board.add(matriz[i][j]);
-
                 }
                 x += 32;
             }
@@ -172,10 +247,14 @@ public class Matriz_Button extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBttn_size;
-    private javax.swing.JComboBox<String> jCmbBx_size;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton cambiarBoton;
+    private javax.swing.JComboBox<String> comboBoxNum;
+    private javax.swing.JButton generarBoton;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPnl_board;
+    private javax.swing.JButton jugarBoton;
     // End of variables declaration//GEN-END:variables
 }

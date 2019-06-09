@@ -33,7 +33,7 @@ public class HexButton extends JButton {
      */
     public HexButton(Character character) {
         this.calculateBounds();
-        this.setBackground(Color.YELLOW);
+        this.setBackground(Color.white);
         this.setForeground(Color.RED);
         this.character = character;
         this.clicked = false;

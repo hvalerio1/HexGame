@@ -1,32 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ui;
 
-import dataSet.User;
-import fileManagerBinary.ReaderManager;
-import static ui.Main.listManager;
-import fileManagerBinary.WriterManager;
-import java.io.IOException;
+import BuildUser.DirectorBuilder;
+import BuildUser.*;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Jenner Rodriguez
+/*
+ * @author Vindas
  */
 public class SigIn extends javax.swing.JDialog {
 
-
     /**
-     * Creates new form SigIn
+     * Creates new form SigIn2
      */
     public SigIn(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
-
     }
 
     /**
@@ -38,36 +28,47 @@ public class SigIn extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbSigIn = new javax.swing.JLabel();
-        lbUsername = new javax.swing.JLabel();
-        lbPassword = new javax.swing.JLabel();
-        txtUsername = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JTextField();
-        btNext = new javax.swing.JButton();
-        btBack = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        userNameText = new javax.swing.JTextField();
+        inicioBoton = new javax.swing.JButton();
+        passwordTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        lbSigIn.setFont(new java.awt.Font("Dialog", 2, 24)); // NOI18N
-        lbSigIn.setText("Registro");
+        jLabel1.setFont(new java.awt.Font("Dialog", 2, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel1.setText("Crear Usuario");
 
-        lbUsername.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
-        lbUsername.setText("Ingrese su nombre de usuario");
+        jLabel2.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel2.setText("Usuario");
 
-        lbPassword.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
-        lbPassword.setText("Contraseña deseada: ");
+        jLabel3.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel3.setText("Contraseña");
 
-        btNext.setText("Siguiente");
-        btNext.addActionListener(new java.awt.event.ActionListener() {
+        userNameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btNextActionPerformed(evt);
+                userNameTextActionPerformed(evt);
             }
         });
 
-        btBack.setText("Atrás");
-        btBack.addActionListener(new java.awt.event.ActionListener() {
+        inicioBoton.setBackground(new java.awt.Color(0, 0, 255));
+        inicioBoton.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
+        inicioBoton.setForeground(new java.awt.Color(0, 0, 0));
+        inicioBoton.setText("Iniciar Sesion");
+        inicioBoton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        inicioBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btBackActionPerformed(evt);
+                inicioBotonActionPerformed(evt);
+            }
+        });
+
+        passwordTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passwordTextFieldActionPerformed(evt);
             }
         });
 
@@ -76,130 +77,112 @@ public class SigIn extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(btBack, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(76, 76, 76)
-                        .addComponent(btNext, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(24, 24, 24)
-                            .addComponent(lbSigIn, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(lbUsername)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(lbPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(userNameText)
+                            .addComponent(passwordTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(191, 191, 191)
+                        .addComponent(inicioBoton)))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(lbSigIn)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbUsername)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbPassword)
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btBack, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btNext, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(43, Short.MAX_VALUE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(userNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
+                .addComponent(inicioBoton)
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNextActionPerformed
+    private void userNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userNameTextActionPerformed
 
-        ReaderManager reader = new ReaderManager();
-        String password = txtPassword.getText();
-        String user = txtUsername.getText();
-
-        if (password.length() < 2) {
-            JOptionPane.showMessageDialog(null, "La contraseña es muy pequeña\nDebe ser mayor a 2 caracteres.");
-            return;
-        }
-
-        if (user.length() < 3) {
-            JOptionPane.showMessageDialog(null, "El nombre de usuario es muy pequeño\nDebe ser mayor a 3 caracteres.");
-            return;
-        }
-
-        User username = new User(password, user);
+    private void inicioBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioBotonActionPerformed
+        DirectorBuilder director = new DirectorBuilder();
+        UsersList list = new UsersList();
         try {
-            reader.open("userFile.ser");
-            listManager = reader.read();
-            reader.close(); //importante cerrar el archivo
-            System.out.println("Lectura exitosa");
-//            System.out.println("Contenido de la lista:\n" + listManager.getListString());
-        } catch (IOException ex) {
-            System.err.println("error de archivo");
-            System.err.println(ex.getMessage());
-            //ex.printStackTrace();
-        } catch (ClassNotFoundException ex) {
-            System.err.println("error de archivo");
-            System.err.println(ex.getMessage());
-            //ex.printStackTrace();
+            list.addUser(director.createUser(null, list, this.userNameText.getText(), this.passwordTextField.getText()));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
         }
-//        System.out.println(txtUsername.getText());
-        int account = 0;
-        if (listManager.getSize() == 0) {
-            listManager.addUser(username);
-        } else {
-            for (int i = 0; i < listManager.getSize(); i++) {
-                if (txtUsername.getText().equals(listManager.getUserList()[i].getUser())) {
-                    account++;
+    }//GEN-LAST:event_inicioBotonActionPerformed
+
+    private void passwordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordTextFieldActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(SigIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(SigIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(SigIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(SigIn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        if (account == 0) {
-            listManager.addUser(username);
-            WriterManager writer = new WriterManager();
-            try {
-                writer.open("userFile.ser");  //probar el parametro apend en new FileWriter(fileName, true)
-                writer.write();
-                writer.close(); //importante cerrar el archivo 
-                System.out.println("Escritura exitosa");
-            } catch (IOException ex) {
-                System.err.println("error de archivo");
-                System.err.println(ex.getMessage());
-                //ex.printStackTrace();
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the dialog */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                SigIn dialog = new SigIn(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
-//            JOptionPane.showMessageDialog(null, "Instrucciones.\n1-Elija el nivel en que desea jugar.\n2-Complete los campos, con solamente una letra por casilla.\n3-Presione el botón 'verificar' cuando haya finalizado para revisar el crucigrama.");
-            Matriz_Button matriz = new Matriz_Button();
-            matriz.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "El nombre de usuario ya está registrado");
-        }
-
-    }//GEN-LAST:event_btNextActionPerformed
-
-    private void btBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBackActionPerformed
-        // TODO add your handling code here:
-        dispose();
-    }//GEN-LAST:event_btBackActionPerformed
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btBack;
-    private javax.swing.JButton btNext;
-    private javax.swing.JLabel lbPassword;
-    private javax.swing.JLabel lbSigIn;
-    private javax.swing.JLabel lbUsername;
-    private javax.swing.JTextField txtPassword;
-    private javax.swing.JTextField txtUsername;
+    private javax.swing.JButton inicioBoton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField passwordTextField;
+    private javax.swing.JTextField userNameText;
     // End of variables declaration//GEN-END:variables
 }

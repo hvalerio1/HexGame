@@ -21,7 +21,7 @@ public class UserBuilder implements InterfaceBuilder {
      * verifies if the name has a length between 4 and 8 characters
      */
     @Override
-    public void getName(String name) {
+    public void getName(String name, UsersList list) {
         if (name == null) {
             this.exception = "No se ha ingresado ningún nombre\n";
         }
@@ -34,7 +34,7 @@ public class UserBuilder implements InterfaceBuilder {
         if (name.length() < 4 || name.length() > 8) {
             this.exception = "El nombre debe tener entre 4 y 8 caracteres\n";
         }
-        if (false) { //No debe ser igual al de otro jugador
+        if (list.containsUser(name)) { //No debe ser igual al de otro jugador
             this.exception = "Este nombre de usuario ya existe\n";
         }
         this.newUser.setName(name);

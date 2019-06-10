@@ -28,6 +28,7 @@ public class UsersList {
             this.input = new FileInputStream(this.file);
             properties.load(this.input);
             this.output = new FileOutputStream(this.file);
+            this.importList();
         } catch (IOException ioe) {
             JOptionPane.showMessageDialog(null, ioe);
         }
@@ -35,17 +36,18 @@ public class UsersList {
     
     public void addUser(User u) {
         if(this.list.containsKey(u.getName())) {
-            return;
+            throw BuilderException("");
         } else {
             this.list.put(u.getName(), u);
+            properties.setProperty("server." + u.getName(), u.getPassword());
         }
     }
     
-    public boolean containsUser(User u) {
-        return (this.list.containsKey(u.getName()))? true : false;
+    public boolean containsUser(String name) {
+        return (this.list.containsKey(name))? true : false;
     }
     
-    public void ChargeTree() {
+    public void importList() {
         for (Enumeration e = properties.keys(); e.hasMoreElements();) {
             Object obj = e.nextElement();
             System.out.println(obj + ": " + properties.getProperty(obj.toString()));
@@ -53,4 +55,11 @@ public class UsersList {
         }
     }
     
+    public void toSvePropertie() {
+         try {
+            properties.store(this.output, file);
+        } catch (IOException ioe) {
+             JOptionPane.showMessageDialog(null, ioe);
+        }
+    }
 }

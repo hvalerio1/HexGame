@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ui;
 
-/**
- *
+/*
  * @author Jenner Rodriguez
  */
 public class Index extends javax.swing.JFrame {
@@ -33,100 +28,123 @@ public class Index extends javax.swing.JFrame {
         lbNameJ = new javax.swing.JLabel();
         btLogin = new javax.swing.JButton();
         btSignIn = new javax.swing.JButton();
-        lbNameGame = new javax.swing.JLabel();
         lbNameJimmy = new javax.swing.JLabel();
+        lbNameJ1 = new javax.swing.JLabel();
+        lbNameJ2 = new javax.swing.JLabel();
+        lbNameJ3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lbWelcome.setFont(new java.awt.Font("Sylfaen", 0, 36)); // NOI18N
-        lbWelcome.setText("Bienvenidos!");
+        lbWelcome.setFont(new java.awt.Font("Dialog", 2, 36)); // NOI18N
+        lbWelcome.setForeground(new java.awt.Color(255, 0, 0));
+        lbWelcome.setText("Juego Hex");
 
         lbNameH.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
-        lbNameH.setText("Hernaldo Valerio");
+        lbNameH.setForeground(new java.awt.Color(0, 0, 255));
+        lbNameH.setText("Hernaldo");
 
         lbNameJ.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
-        lbNameJ.setText("Jenner Rodríguez");
+        lbNameJ.setForeground(new java.awt.Color(0, 0, 255));
+        lbNameJ.setText("Jenner ");
 
+        btLogin.setBackground(new java.awt.Color(0, 0, 255));
+        btLogin.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
+        btLogin.setForeground(new java.awt.Color(0, 0, 0));
         btLogin.setText("Ingresar");
+        btLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btLoginActionPerformed(evt);
             }
         });
 
+        btSignIn.setBackground(new java.awt.Color(0, 0, 255));
+        btSignIn.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
+        btSignIn.setForeground(new java.awt.Color(0, 0, 0));
         btSignIn.setText("Registrarse");
+        btSignIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btSignIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btSignInActionPerformed(evt);
             }
         });
 
-        lbNameGame.setFont(new java.awt.Font("Sylfaen", 0, 36)); // NOI18N
-        lbNameGame.setText("Hex");
-
         lbNameJimmy.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
-        lbNameJimmy.setText("Erick Vindas");
+        lbNameJimmy.setForeground(new java.awt.Color(0, 0, 255));
+        lbNameJimmy.setText("Erick ");
+
+        lbNameJ1.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
+        lbNameJ1.setForeground(new java.awt.Color(255, 0, 0));
+        lbNameJ1.setText("Rodríguez");
+
+        lbNameJ2.setFont(new java.awt.Font("Sylfaen", 0, 24)); // NOI18N
+        lbNameJ2.setForeground(new java.awt.Color(255, 0, 0));
+        lbNameJ2.setText("Valerio");
+
+        lbNameJ3.setFont(new java.awt.Font("Sylfaen", 0, 25)); // NOI18N
+        lbNameJ3.setForeground(new java.awt.Color(255, 0, 0));
+        lbNameJ3.setText("Vindas");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(100, 100, 100)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btSignIn)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lbWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lbNameJ)
+                            .addGap(18, 18, 18)
+                            .addComponent(lbNameJ1))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lbNameH)
+                            .addGap(18, 18, 18)
+                            .addComponent(lbNameJ2))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lbNameJimmy, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lbNameJ3, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(77, 77, 77)
                 .addComponent(btLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
-                .addComponent(btSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(138, 138, 138))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(218, 218, 218)
-                        .addComponent(lbWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbNameH))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbNameJ))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbNameJimmy, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbNameGame, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(203, 203, 203))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(lbWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbNameGame, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
-                .addComponent(lbNameH)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbNameJ)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbNameJimmy, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(lbWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28))
+                    .addComponent(lbNameJ)
+                    .addComponent(lbNameJ1))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbNameH)
+                    .addComponent(lbNameJ2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbNameJimmy, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbNameJ3))
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btSignIn, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
-        Login login = new Login(this,true);
+        Login login = new Login(this, true);
         login.setVisible(true);
     }//GEN-LAST:event_btLoginActionPerformed
 
     private void btSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSignInActionPerformed
-        SigIn sig = new SigIn(this,true);
+        SigIn sig = new SigIn(this, true);
         sig.setVisible(true);
     }//GEN-LAST:event_btSignInActionPerformed
 
@@ -134,9 +152,11 @@ public class Index extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btLogin;
     private javax.swing.JButton btSignIn;
-    private javax.swing.JLabel lbNameGame;
     private javax.swing.JLabel lbNameH;
     private javax.swing.JLabel lbNameJ;
+    private javax.swing.JLabel lbNameJ1;
+    private javax.swing.JLabel lbNameJ2;
+    private javax.swing.JLabel lbNameJ3;
     private javax.swing.JLabel lbNameJimmy;
     private javax.swing.JLabel lbWelcome;
     // End of variables declaration//GEN-END:variables

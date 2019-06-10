@@ -69,7 +69,7 @@ public class UsersList {
     public void toSvePropertie() {
          try {
             this.output = new FileOutputStream(this.file);
-            properties.store(this.output, file);
+            properties.store(this.output, "Datos");
         } catch (IOException ioe) {
              JOptionPane.showMessageDialog(null, ioe);
         }

@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Arroz;
+package Connection;
 
 /**
  *
  * @author Jenner Rodriguez
  */
-public class sfadfdsa {
+public class ConnectionThread extends Thread {
     
 }

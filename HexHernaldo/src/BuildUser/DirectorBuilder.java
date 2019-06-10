@@ -1,0 +1,17 @@
+
+package BuildUser;
+
+/*
+ * @author Vindas
+ */
+public class DirectorBuilder {
+    
+    public User createUser(InterfaceBuilder builder, String name, String password) throws BuilderException {
+        if(builder == null) {
+            builder = new UserBuilder();
+        } 
+        builder.getName(name);
+        builder.getPassword(password);
+        return builder.getUser();
+    }
+}

@@ -49,7 +49,7 @@ public class UsersList {
         for (Enumeration e = properties.keys(); e.hasMoreElements();) {
             Object obj = e.nextElement();
             System.out.println(obj + ": " + properties.getProperty(obj.toString()));
-            list.put(obj.toString(), new User(obj.toString(), prop.getProperty(obj.toString())));
+            list.put(obj.toString(), new User(obj.toString(), this.properties.getProperty(obj.toString())));
         }
     }
     

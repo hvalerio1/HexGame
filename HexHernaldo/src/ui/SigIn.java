@@ -58,7 +58,7 @@ public class SigIn extends javax.swing.JDialog {
         inicioBoton.setBackground(new java.awt.Color(0, 0, 255));
         inicioBoton.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
         inicioBoton.setForeground(new java.awt.Color(0, 0, 0));
-        inicioBoton.setText("Iniciar Sesion");
+        inicioBoton.setText("Siguiente");
         inicioBoton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         inicioBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,6 +123,7 @@ public class SigIn extends javax.swing.JDialog {
     private void inicioBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioBotonActionPerformed
         DirectorBuilder director = new DirectorBuilder();
         UsersList list = new UsersList();
+        
         try {
             list.addUser(director.createUser(null, list, this.userNameText.getText(), this.passwordTextField.getText()));
         } catch (Exception e) {

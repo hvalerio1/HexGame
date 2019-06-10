@@ -27,19 +27,30 @@ public class UsersList {
         try {
             this.input = new FileInputStream(this.file);
             properties.load(this.input);
-            this.output = new FileOutputStream(this.file);
-            this.importList();
         } catch (IOException ioe) {
             JOptionPane.showMessageDialog(null, ioe);
         }
     }
     
-    public void addUser(User u) {
+    public void addUser(User u) throws BuilderException {
         if(this.list.containsKey(u.getName())) {
-            throw BuilderException("");
+            throw new BuilderException("Ya existe este nombre de usuario ya existe");
         } else {
             this.list.put(u.getName(), u);
             properties.setProperty("server." + u.getName(), u.getPassword());
+            toSvePropertie();
+        }
+    }
+    
+    public User findUser(String name, String password) throws BuilderException {
+        if(containsUser(name)) {
+            if (this.list.get(name).getPassword().equals(password)) {
+               return this.list.get(name); 
+            } else {
+                throw new BuilderException("Contraseña incorrecta");
+            }
+        } else {
+            throw new BuilderException("El usuario no existe");
         }
     }
     
@@ -57,9 +68,15 @@ public class UsersList {
     
     public void toSvePropertie() {
          try {
+            this.output = new FileOutputStream(this.file);
             properties.store(this.output, file);
         } catch (IOException ioe) {
              JOptionPane.showMessageDialog(null, ioe);
         }
+    }
+    
+    public void prueba() {
+        this.properties.setProperty("servidor.nombre", "GatoLoco");
+        toSvePropertie();
     }
 }

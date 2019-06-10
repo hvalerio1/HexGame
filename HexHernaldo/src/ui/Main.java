@@ -6,7 +6,7 @@ import BuildUser.UsersList;
 
 /**
  *
- * @author mi pc
+ * @author Vindas
  */
 public class Main {
     

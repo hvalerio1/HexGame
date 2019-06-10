@@ -77,6 +77,10 @@ public class UsersList {
     
     public void prueba() {
         this.properties.setProperty("servidor.nombre", "GatoLoco");
+        this.properties.setProperty("servidor.nombre2", "hola");
+        this.properties.setProperty("servidor.nombre3", "loco");
         toSvePropertie();
     }
+    
+    
 }

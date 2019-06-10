@@ -4,7 +4,7 @@ package BuildUser;
 /*
  * @author Vindas
  */
-class User {
+public class User {
     private String name;
     private String password;
 

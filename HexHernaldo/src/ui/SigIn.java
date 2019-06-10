@@ -123,7 +123,6 @@ public class SigIn extends javax.swing.JDialog {
     private void inicioBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioBotonActionPerformed
         DirectorBuilder director = new DirectorBuilder();
         UsersList list = new UsersList();
-        
         try {
             list.addUser(director.createUser(null, list, this.userNameText.getText(), this.passwordTextField.getText()));
         } catch (Exception e) {

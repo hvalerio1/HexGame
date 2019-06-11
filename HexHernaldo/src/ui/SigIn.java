@@ -17,7 +17,7 @@ public class SigIn extends javax.swing.JDialog {
     public SigIn(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setLocationRelativeTo(parent);
+        setLocationRelativeTo(null);        
     }
 
     /**
@@ -29,32 +29,19 @@ public class SigIn extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        userNameText = new javax.swing.JTextField();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPnl_signin = new javax.swing.JPanel();
         inicioBoton = new javax.swing.JButton();
         passwordTextField = new javax.swing.JTextField();
+        userNameText = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 2, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel1.setText("Crear Usuario");
-
-        jLabel2.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel2.setText("Usuario");
-
-        jLabel3.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel3.setText("Contraseña");
-
-        userNameText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userNameTextActionPerformed(evt);
-            }
-        });
+        jPnl_signin.setLayout(null);
 
         inicioBoton.setBackground(new java.awt.Color(0, 0, 255));
         inicioBoton.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
@@ -65,52 +52,65 @@ public class SigIn extends javax.swing.JDialog {
                 inicioBotonActionPerformed(evt);
             }
         });
+        jPnl_signin.add(inicioBoton);
+        inicioBoton.setBounds(140, 190, 75, 40);
 
         passwordTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordTextFieldActionPerformed(evt);
             }
         });
+        jPnl_signin.add(passwordTextField);
+        passwordTextField.setBounds(140, 110, 149, 24);
+
+        userNameText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userNameTextActionPerformed(evt);
+            }
+        });
+        jPnl_signin.add(userNameText);
+        userNameText.setBounds(140, 70, 149, 24);
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel3.setText("Contraseña");
+        jPnl_signin.add(jLabel3);
+        jLabel3.setBounds(30, 110, 93, 24);
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel2.setText("Usuario");
+        jPnl_signin.add(jLabel2);
+        jLabel2.setBounds(30, 70, 83, 27);
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 2, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel1.setText("Crear Usuario");
+        jPnl_signin.add(jLabel1);
+        jLabel1.setBounds(30, 10, 178, 43);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/estrellas-en-el-cielo.jpg"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        jLabel4.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel4.setOpaque(true);
+        jPnl_signin.add(jLabel4);
+        jLabel4.setBounds(10, 0, 370, 270);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(userNameText)
-                            .addComponent(passwordTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(191, 191, 191)
-                        .addComponent(inicioBoton)))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPnl_signin, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(userNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52)
-                .addComponent(inicioBoton)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addGap(19, 19, 19)
+                .addComponent(jPnl_signin, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         pack();
@@ -187,6 +187,9 @@ public class SigIn extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPnl_signin;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField passwordTextField;
     private javax.swing.JTextField userNameText;
     // End of variables declaration//GEN-END:variables

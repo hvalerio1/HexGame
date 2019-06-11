@@ -14,7 +14,7 @@ public class HexBoard {
     public HexBoard(int size) {
         this.size = size;
         this.node_counter = 1;        
-        this.board = new int[size][size];
+        this.board = new int[size+2][size+2];
     }
        
     public static void addHexFile(HexButton button){
@@ -26,14 +26,14 @@ public class HexBoard {
     
     public boolean checkWinner(){   
         boolean flag = false;
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[0].length; j++) {
+        for (int i = 1; i < board.length-1; i++) {
+            for (int j = 1; j < board[0].length-1; j++) {
                 if (board[i][j] == 1) {
                     flag = true;
                 }
             }
-            if (flag) {
-                
+            if (!flag) {
+                return false;
             }
         }
         return true;

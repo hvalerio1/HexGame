@@ -1,8 +1,6 @@
 package ui;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import logic.HexButton;
 
 /**
@@ -169,6 +167,7 @@ public class Matriz_Button extends javax.swing.JFrame  {
     private void jugarBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jugarBotonActionPerformed
         // TODO add your handling code here:
         this.bt_CambiarTam.setVisible(false);
+        
         
     }//GEN-LAST:event_jugarBotonActionPerformed
 

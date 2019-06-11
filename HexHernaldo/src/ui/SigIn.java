@@ -128,6 +128,8 @@ public class SigIn extends javax.swing.JDialog {
         try {
             newUser = director.createUser(null, list, this.userNameText.getText(), this.passwordTextField.getText());
             list.addUser(newUser);
+            Matriz matriz = new Matriz(null, true);
+            matriz.setVisible(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }

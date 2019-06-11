@@ -129,7 +129,8 @@ public class Login extends javax.swing.JDialog {
             if(list.findUserLogin(newUser)) {
                 JOptionPane.showMessageDialog(null, "Bienvenido");
                 this.setVisible(false);
-                new Matriz_Button().setVisible(true);
+                Matriz matriz = new Matriz(null, true);
+                matriz.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(null, "No encontrado");
             }

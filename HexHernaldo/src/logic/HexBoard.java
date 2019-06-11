@@ -10,7 +10,7 @@ public class HexBoard {
     private int size;
     private HexNode aux;    
     private int node_counter;
-    private static boolean [][] board;
+    private static boolean [][] board;    
 
     public HexBoard(int size) {
         this.size = size;
@@ -87,7 +87,7 @@ public class HexBoard {
 
     }
     
-    public static void addHexFile(int x, int y){
-        board[x][y] = true;
+    public static void addHexFile(HexButton button){
+        board[button.getX()][button.getY()] = true;
     }
 }

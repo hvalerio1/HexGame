@@ -32,6 +32,22 @@ public class HexButton extends JButton implements ActionListener{
     private int x;
     private int y;
 
+//    public int getX() {
+//        return x;
+//    }
+//
+//    public void setX(int x) {
+//        this.x = x;
+//    }
+//
+//    public int getY() {
+//        return y;
+//    }
+//
+//    public void setY(int y) {
+//        this.y = y;
+//    }
+
     /**
      * Creates a hexagonal button with a single character label
      *
@@ -50,7 +66,8 @@ public class HexButton extends JButton implements ActionListener{
         addActionListener((ActionListener) this);
         this.x = 0;
         this.y = 0;
-    }
+    }       
+  
 
     /**
      * Creates a hexagon of certain height / width and ratio multiplier
@@ -178,7 +195,7 @@ public class HexButton extends JButton implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         //Se asigna el color de fondo azul
         setBackground(Color.BLUE);
-        HexBoard.addHexFile(this.x, this.y);
+        HexBoard.addHexFile(this);        
     }
 
 }

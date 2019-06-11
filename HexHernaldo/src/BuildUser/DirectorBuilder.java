@@ -13,7 +13,7 @@ public class DirectorBuilder {
         if(builder == null) {
             builder = new UserBuilder();
         } 
-        builder.getName(name, list);
+        builder.getName(name);
         builder.getPassword(password);
         return builder.getUser();
     }

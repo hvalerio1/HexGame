@@ -9,8 +9,7 @@ import org.apache.commons.codec.digest.DigestUtils;
  */
 public class UserBuilder implements InterfaceBuilder {
     
-    private User newUser;
-    private String exception = "";
+    private User newUser = new User();
     
     /**
      * 
@@ -21,21 +20,18 @@ public class UserBuilder implements InterfaceBuilder {
      * verifies if the name has a length between 4 and 8 characters
      */
     @Override
-    public void getName(String name, UsersList list) {
+    public void getName(String name) throws BuilderException{
         if (name == null) {
-            this.exception = "No se ha ingresado ningún nombre\n";
+            throw new BuilderException("No se ha ingresado ningún nombre");
         }
         if(hasSpecialsCharacters(name)) {
-            this.exception = "El nombre solo puede tener letras y números\n";
+            throw new BuilderException("El nombre solo puede tener letras y números");
         }
         if (!Character.isLetter(name.charAt(0))) {
-            this.exception = "El primer caracter del nombre debe de ser una letra\n";
+            throw new BuilderException("El primer caracter del nombre debe de ser una letra");
         }
         if (name.length() < 4 || name.length() > 8) {
-            this.exception = "El nombre debe tener entre 4 y 8 caracteres\n";
-        }
-        if (list.containsUser(name)) { //No debe ser igual al de otro jugador
-            this.exception = "Este nombre de usuario ya existe\n";
+            throw new BuilderException("El nombre debe tener entre 4 y 8 caracteres");
         }
         this.newUser.setName(name);
     }
@@ -48,26 +44,22 @@ public class UserBuilder implements InterfaceBuilder {
      * if has not specials characters and encrypts the password
      */
     @Override
-    public void getPassword(String password) {
+    public void getPassword(String password) throws BuilderException{
         if (password == null) {
-            this.exception = "No se ha ingresado ninguna contraseña";
+            throw new BuilderException("No se ha ingresado ninguna contraseña");
         }
         if (password.length() < 4 || password.length() > 8) {
-            this.exception = "La contraseña debe tener entre 4 y 8 caracteres\n";
+            throw new BuilderException("La contraseña debe tener entre 4 y 8 caracteres\n");
         }
         if(hasSpecialsCharacters(password)) {
-            this.exception = "La contraseña solo puede tener letras y números\n";
+            throw new BuilderException("La contraseña solo puede tener letras y números\n");
         }
-        this.newUser.setPassword(DigestUtils.md5Hex(password));
+//        this.newUser.setPassword(DigestUtils.md5Hex(password));
     }
 
     @Override
-    public User getUser() throws BuilderException{
-        if(this.exception == "") {
-            return this.newUser;
-        } else {
-            throw new BuilderException(this.exception);
-        }
+    public User getUser() {
+        return this.newUser;
     }
     
     /**
@@ -76,10 +68,13 @@ public class UserBuilder implements InterfaceBuilder {
      * If the name has a special character
      * returns tre else returns fsalse
      */
-    public boolean hasSpecialsCharacters(String text) {
+    static boolean hasSpecialsCharacters(String text) {
+        int[] nums = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         for (int i = 0; i < text.length(); i++) {
-            if(!Character.isLetter(text.charAt(i))) {
-                return true;
+            for (int j = 0; j < nums.length; j++) {
+                if (!Character.isLetter(text.charAt(i)) && text.charAt(i) != nums[j]) {
+                    return true;
+                }
             }
         }
         return false;

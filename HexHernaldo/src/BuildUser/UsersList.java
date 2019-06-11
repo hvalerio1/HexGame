@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Enumeration;
+import java.util.Iterator;
 import java.util.Properties;
 import java.util.TreeMap;
 import javax.swing.JOptionPane;
@@ -33,19 +34,21 @@ public class UsersList {
     }
     
     public void addUser(User u) throws BuilderException {
+        String name;
         if(this.list.containsKey(u.getName())) {
-            throw new BuilderException("Ya existe este nombre de usuario ya existe");
+            throw new BuilderException("Ya existe este nombre de usuario");
         } else {
+            name = u.getName();
             this.list.put(u.getName(), u);
-            properties.setProperty("server." + u.getName(), u.getPassword());
-            toSvePropertie();
+            properties.setProperty(name, u.getPassword());
+            toSavePropertie();
         }
     }
     
-    public User findUser(String name, String password) throws BuilderException {
-        if(containsUser(name)) {
-            if (this.list.get(name).getPassword().equals(password)) {
-               return this.list.get(name); 
+    public User findUserLogin(User u) throws BuilderException {
+        if(containsUser(u.getName())) {
+            if (this.list.get(u.getName()).getPassword().equals(u.getPassword())) {
+               return this.list.get(u.getName()); 
             } else {
                 throw new BuilderException("Contraseña incorrecta");
             }
@@ -58,28 +61,37 @@ public class UsersList {
         return (this.list.containsKey(name))? true : false;
     }
     
-    public void importList() {
+    public void importFile() {
         for (Enumeration e = properties.keys(); e.hasMoreElements();) {
             Object obj = e.nextElement();
-            System.out.println(obj + ": " + properties.getProperty(obj.toString()));
-            list.put(obj.toString(), new User(obj.toString(), this.properties.getProperty(obj.toString())));
+//            System.out.println(obj + ": " + properties.getProperty(obj.toString()));
+            this.list.put(obj.toString(), new User(obj.toString(), this.properties.getProperty(obj.toString())));
         }
     }
     
-    public void toSvePropertie() {
+    public void toSavePropertie() {
          try {
             this.output = new FileOutputStream(this.file);
-            properties.store(this.output, "Datos");
+            properties.store(this.output, "Datos2");
         } catch (IOException ioe) {
              JOptionPane.showMessageDialog(null, ioe);
         }
+    }
+    
+    public String print() {
+        String text = "";
+        Iterator i = this.list.values().iterator();
+        while (i.hasNext()){
+            text += i.next().toString();
+        }
+        return text;
     }
     
     public void prueba() {
         this.properties.setProperty("servidor.nombre", "GatoLoco");
         this.properties.setProperty("servidor.nombre2", "hola");
         this.properties.setProperty("servidor.nombre3", "loco");
-        toSvePropertie();
+        toSavePropertie();
     }
     
     

@@ -2,6 +2,7 @@
 package ui;
 
 import BuildUser.DirectorBuilder;
+import BuildUser.User;
 import BuildUser.UsersList;
 import javax.swing.JOptionPane;
 
@@ -121,11 +122,12 @@ public class Login extends javax.swing.JDialog {
 
     private void btNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNextActionPerformed
         UsersList list = new UsersList();
-        list.importList();
+        list.importFile();
+        User newUser = new User(this.txtUsername.getText(), this.txtPassword.getText());
         try {
-            list.findUser(this.txtUsername.getText(), this.txtPassword.getText());
+            list.findUserLogin(newUser);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_btNextActionPerformed
 

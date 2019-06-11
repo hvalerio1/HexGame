@@ -5,6 +5,7 @@ import BuildUser.DirectorBuilder;
 import BuildUser.User;
 import BuildUser.UsersList;
 import javax.swing.JOptionPane;
+import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
@@ -123,9 +124,15 @@ public class Login extends javax.swing.JDialog {
     private void btNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNextActionPerformed
         UsersList list = new UsersList();
         list.importFile();
-        User newUser = new User(this.txtUsername.getText(), this.txtPassword.getText());
+        User newUser = new User(this.txtUsername.getText(), DigestUtils.md5Hex(this.txtPassword.getText()));
         try {
-            list.findUserLogin(newUser);
+            if(list.findUserLogin(newUser)) {
+                JOptionPane.showMessageDialog(null, "Bienvenido");
+                this.setVisible(false);
+                new Matriz_Button().setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "No encontrado");
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }

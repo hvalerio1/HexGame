@@ -3,6 +3,7 @@ package ui;
 
 import BuildUser.DirectorBuilder;
 import BuildUser.*;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /*
@@ -120,14 +121,13 @@ public class SigIn extends javax.swing.JDialog {
     }//GEN-LAST:event_userNameTextActionPerformed
 
     private void inicioBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioBotonActionPerformed
-//        DirectorBuilder director = new DirectorBuilder();
+        DirectorBuilder director = new DirectorBuilder();
         UsersList list = new UsersList();
         list.importFile();
         User newUser;
         try {
-//            newUser = director.createUser(null, list, this.userNameText.getText(), this.passwordTextField.getText());
-            list.addUser(new User(this.userNameText.getText(), this.passwordTextField.getText()));
-            list.toSavePropertie();
+            newUser = director.createUser(null, list, this.userNameText.getText(), this.passwordTextField.getText());
+            list.addUser(newUser);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }

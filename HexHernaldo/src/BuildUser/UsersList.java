@@ -43,10 +43,10 @@ public class UsersList {
         }
     }
     
-    public User findUserLogin(User u) throws BuilderException {
+    public boolean findUserLogin(User u) throws BuilderException {
         if(containsUser(u.getName())) {
             if (this.list.get(u.getName()).getPassword().equals(u.getPassword())) {
-               return this.list.get(u.getName()); 
+               return true; 
             } else {
                 throw new BuilderException("Contraseña incorrecta");
             }

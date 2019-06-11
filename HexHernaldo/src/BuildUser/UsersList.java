@@ -62,7 +62,7 @@ public class UsersList {
     public void importFile() {
         for (Enumeration e = properties.keys(); e.hasMoreElements();) {
             Object obj = e.nextElement();
-            System.err.println(obj + ": " + properties.getProperty(obj.toString()));
+//            System.err.println(obj + ": " + properties.getProperty(obj.toString()));
             this.list.put(obj.toString(), new User(obj.toString(), this.properties.getProperty(obj.toString())));
         }
     }

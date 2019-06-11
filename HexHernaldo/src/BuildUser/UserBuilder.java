@@ -20,7 +20,7 @@ public class UserBuilder implements InterfaceBuilder {
      * verifies if the name has a length between 4 and 8 characters
      */
     @Override
-    public void getName(String name) throws BuilderException{
+    public void getName(String name) throws BuilderException {
         if (name == null) {
             throw new BuilderException("No se ha ingresado ningún nombre");
         }
@@ -44,7 +44,7 @@ public class UserBuilder implements InterfaceBuilder {
      * if has not specials characters and encrypts the password
      */
     @Override
-    public void getPassword(String password) throws BuilderException{
+    public void getPassword(String password) throws BuilderException {
         if (password == null) {
             throw new BuilderException("No se ha ingresado ninguna contraseña");
         }
@@ -54,7 +54,7 @@ public class UserBuilder implements InterfaceBuilder {
         if(hasSpecialsCharacters(password)) {
             throw new BuilderException("La contraseña solo puede tener letras y números\n");
         }
-//        this.newUser.setPassword(DigestUtils.md5Hex(password));
+        this.newUser.setPassword(DigestUtils.md5Hex(password));
     }
 
     @Override

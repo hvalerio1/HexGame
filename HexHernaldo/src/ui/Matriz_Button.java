@@ -220,24 +220,25 @@ public class Matriz_Button extends javax.swing.JFrame  {
         int x = 40;
         int y = 0;
         matriz = new HexButton[size + 2][size + 2];
+        HexButton button = null;
         for (int i = 0;
                 i < matriz.length;
                 i++) {
             for (int j = 0; j < matriz[0].length; j++) {
-                matriz[i][j] = new HexButton();
+                button = matriz[i][j] = new HexButton();
                 if (i == 0 || i == matriz.length - 1) {
-                    matriz[i][j].setBackground(Color.red);
-                    matriz[i][j].setBounds(x, y, 40, 40);
-                    matriz[i][j].setEnabled(false);
-                    this.jPnl_board.add(matriz[i][j]);
+                    button.setBackground(Color.red);
+                    button.setBounds(x, y, 40, 40);
+                    button.setEnabled(false);
+                    this.jPnl_board.add(button);
                 } else if (j == 0 || j == matriz.length - 1) {
-                    matriz[i][j].setBackground(Color.blue);
-                    matriz[i][j].setBounds(x, y, 40, 40);
-                    matriz[i][j].setEnabled(false);
-                    this.jPnl_board.add(matriz[i][j]);
+                    button.setBackground(Color.blue);
+                    button.setBounds(x, y, 40, 40);
+                    button.setEnabled(false);
+                    this.jPnl_board.add(button);
                 } else {
-                    matriz[i][j].setBounds(x, y, 40, 40);
-                    this.jPnl_board.add(matriz[i][j]);
+                    button.setBounds(x, y, 40, 40);
+                    this.jPnl_board.add(button);
                 }
                 x += 32;
             }

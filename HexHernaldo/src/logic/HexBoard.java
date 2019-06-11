@@ -10,11 +10,13 @@ public class HexBoard {
     private int size;
     private HexNode aux;    
     private int node_counter;
+    private static boolean [][] board;
 
     public HexBoard(int size) {
         this.size = size;
         this.node_counter = 1;
         this.aux = null;
+        this.board = new boolean[size][size];
     }
 
     public void CreateBoard() {
@@ -83,5 +85,9 @@ public class HexBoard {
             aux = aux.getUp_right();
         }
 
+    }
+    
+    public static void addHexFile(int x, int y){
+        board[x][y] = true;
     }
 }

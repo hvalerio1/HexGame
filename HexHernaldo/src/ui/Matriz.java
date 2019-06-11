@@ -6,6 +6,7 @@
 package ui;
 
 import java.awt.Color;
+import logic.HexBoard;
 import logic.HexButton;
 
 /**
@@ -13,9 +14,9 @@ import logic.HexButton;
  * @author Jenner Rodriguez
  */
 public class Matriz extends javax.swing.JDialog {
-
-    private HexButton[][] matriz;
+    
     private int size;
+    private HexBoard board;
     /**
      * Creates new form Matriz
      */
@@ -150,8 +151,7 @@ public class Matriz extends javax.swing.JDialog {
 
     private void bt_GenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_GenerarActionPerformed
         // TODO add your handling code here:
-        this.size = (int) Integer.parseInt((String) ComboBoxNum.getSelectedItem());
-        matriz = null;
+        this.size = (int) Integer.parseInt((String) ComboBoxNum.getSelectedItem());        
         setMatriz(size);
         this.bt_Generar.setVisible(false);
         this.lb_Tamaño.setVisible(false);
@@ -212,29 +212,31 @@ public class Matriz extends javax.swing.JDialog {
             }
         });
     }
-    
-        private void setMatriz(int size) {
+
+    private void setMatriz(int size) {
+        board = new HexBoard(size);
+        HexButton button = null;
         int x = 40;
         int y = 0;
-        matriz = new HexButton[size + 2][size + 2];
-        for (int i = 0;
-                i < matriz.length;
-                i++) {
-            for (int j = 0; j < matriz[0].length; j++) {
-                matriz[i][j] = new HexButton();
-                if (i == 0 || i == matriz.length - 1) {
-                    matriz[i][j].setBackground(Color.red);
-                    matriz[i][j].setBounds(x, y, 40, 40);
-                    matriz[i][j].setEnabled(false);
-                    this.jPnl_board.add(matriz[i][j]);
-                } else if (j == 0 || j == matriz.length - 1) {
-                    matriz[i][j].setBackground(Color.blue);
-                    matriz[i][j].setBounds(x, y, 40, 40);
-                    matriz[i][j].setEnabled(false);
-                    this.jPnl_board.add(matriz[i][j]);
+        
+        for (int i = 0; i < size + 2; i++) {
+            for (int j = 0; j < size + 2; j++) {
+                button = new HexButton();
+                button.setA(i);
+                button.setB(j);
+                if (i == 0 || i == (size + 1)) {
+                    button.setBackground(Color.red);
+                    button.setBounds(x, y, 40, 40);
+                    button.setEnabled(false);
+                    this.jPnl_board.add(button);
+                } else if (j == 0 || j == (size + 1)) {
+                    button.setBackground(Color.blue);
+                    button.setBounds(x, y, 40, 40);
+                    button.setEnabled(false);
+                    this.jPnl_board.add(button);
                 } else {
-                    matriz[i][j].setBounds(x, y, 40, 40);
-                    this.jPnl_board.add(matriz[i][j]);
+                    button.setBounds(x, y, 40, 40);
+                    this.jPnl_board.add(button);
                 }
                 x += 32;
             }

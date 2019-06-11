@@ -29,24 +29,25 @@ public class HexButton extends JButton implements ActionListener{
     Character character;
     Boolean clicked;
     
-    private int x;
-    private int y;
+    private int a;
+    private int b;
 
-//    public int getX() {
-//        return x;
-//    }
-//
-//    public void setX(int x) {
-//        this.x = x;
-//    }
-//
-//    public int getY() {
-//        return y;
-//    }
-//
-//    public void setY(int y) {
-//        this.y = y;
-//    }
+    public int getA() {
+        return a;
+    }
+
+    public void setA(int a) {
+        this.a = a;
+    }
+
+    public int getB() {
+        return b;
+    }
+
+    public void setB(int b) {
+        this.b = b;
+    }        
+
 
     /**
      * Creates a hexagonal button with a single character label
@@ -64,8 +65,8 @@ public class HexButton extends JButton implements ActionListener{
         this.setContentAreaFilled(false);
         this.setSize(40, 40);
         addActionListener((ActionListener) this);
-        this.x = 0;
-        this.y = 0;
+        this.a = 0;
+        this.b = 0;
     }       
   
 
@@ -194,7 +195,7 @@ public class HexButton extends JButton implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         //Se asigna el color de fondo azul
-        setBackground(Color.BLUE);
+        setBackground(Color.BLUE);        
         HexBoard.addHexFile(this);        
     }
 

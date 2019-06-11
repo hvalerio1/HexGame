@@ -7,87 +7,35 @@ package logic;
  */
 public class HexBoard {
 
-    private int size;
-    private HexNode aux;    
-    private int node_counter;
-    private static boolean [][] board;    
+    private int size;    
+    private static int node_counter;
+    private static int [][] board;    
 
     public HexBoard(int size) {
         this.size = size;
-        this.node_counter = 1;
-        this.aux = null;
-        this.board = new boolean[size][size];
+        this.node_counter = 1;        
+        this.board = new int[size][size];
     }
-
-    public void CreateBoard() {
-        HexNode node = null;
-        int levels = (size * 2) - 1;
-        for (int i = 0; i < size; i++) { // half of the board
-            
-            node_counter++; // quantity of node to create
-            
-            for (int j = 1; j <= node_counter; j++) {
-                node = new HexNode();
-                if (aux == null) {
-                    aux = node;
-                } else {
-                    if (j == 1) { // first node to create
-                        node.setDown_right(aux);
-                        aux.setUp_left(node);
-                        aux = node;
-                    } else if (j == node_counter) { // last node to create
-                        node.setLeft(aux);
-                        aux.setRight(node);
-                        node.setDown_left(aux.getDown_right());
-                        aux.getDown_right().setUp_right(node);
-                    } else { // Middle node to create
-                        aux.setRight(node);
-                        node.setLeft(aux);
-                        node.setDown_left(aux.getDown_right());
-                        aux.getDown_right().setUp_right(node);
-                        node.setDown_right(aux.getDown_right().getRight());
-                        aux.getDown_right().getRight().setUp_left(node);
-                        aux = node;
-                    }
-                }
-            }
-            
-            while (aux.getLeft() != null) {
-                aux = aux.getLeft();
-            }            
-        } //for (int i = 0; i < size; i++) { // half of the board
-        
-        for (int i = 0; i < (size-1); i++) {
-            
-            node_counter--; // quantity of node to create
-            
-            for (int j = node_counter; j > 0; j--) {
-                node = new HexNode();
-                
-                if (j == node_counter) { // first node to create
-                    node.setDown_left(aux);                                
-                    aux.setUp_right(node);                    
-                    node.setDown_right(aux.getRight());
-                    aux.getRight().setUp_left(node);
-                    aux = aux.getRight();                                    
-                } else { // next node to create                    
-                    node.setLeft(aux.getUp_left());
-                    aux.getUp_left().setRight(node);
-                    node.setDown_left(aux);
-                    aux.setUp_right(node);
-                    node.setDown_right(aux.getRight());
-                    aux.getRight().setUp_left(node);
-                }
-            }
-            while (aux.getLeft() != null) {                
-                aux = aux.getLeft();
-            }
-            aux = aux.getUp_right();
-        }
-
+       
+    public static void addHexFile(HexButton button){
+        int a = button.getA();
+        int b = button.getB();
+        board[a][b] = 1;        
+        node_counter++;        
     }
     
-    public static void addHexFile(HexButton button){
-        board[button.getX()][button.getY()] = true;
+    public boolean checkWinner(){   
+        boolean flag = false;
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                if (board[i][j] == 1) {
+                    flag = true;
+                }
+            }
+            if (flag) {
+                
+            }
+        }
+        return true;
     }
 }

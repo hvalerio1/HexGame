@@ -68,13 +68,10 @@ public class UserBuilder implements InterfaceBuilder {
      * If the name has a special character
      * returns tre else returns fsalse
      */
-    static boolean hasSpecialsCharacters(String text) {
-        int[] nums = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    public boolean hasSpecialsCharacters(String text) {
         for (int i = 0; i < text.length(); i++) {
-            for (int j = 0; j < nums.length; j++) {
-                if (!Character.isLetter(text.charAt(i)) && text.charAt(i) != nums[j]) {
-                    return true;
-                }
+            if (!Character.isLetter(text.charAt(i)) && !Character.isDigit(text.charAt(i))) {
+                return true;
             }
         }
         return false;

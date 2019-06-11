@@ -20,13 +20,15 @@ public class Main {
 //        index.setVisible(true);
         UsersList list = new UsersList();
         User u1 = new User("Erick", "1234");
-        User u2 = new User("Erick2", "1234");
+        User u2;
         User u3 = new User("Erick3", "1234");
         DirectorBuilder d = new DirectorBuilder();
-//        list.importFile();
+        list.importFile();
         
         try {
-            list.addUser(d.createUser(null, list, u1.getName(), u1.getPassword()));
+            u2 = d.createUser(null, list, u1.getName(), u1.getPassword());
+            System.out.println("AAAAAAAAAA" + u2.toString());
+//            list.addUser(u2);
         } catch (BuilderException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }

@@ -34,13 +34,11 @@ public class UsersList {
     }
     
     public void addUser(User u) throws BuilderException {
-        String name;
         if(this.list.containsKey(u.getName())) {
             throw new BuilderException("Ya existe este nombre de usuario");
         } else {
-            name = u.getName();
             this.list.put(u.getName(), u);
-            properties.setProperty(name, u.getPassword());
+            properties.setProperty(u.getName(), u.getPassword());
             toSavePropertie();
         }
     }
@@ -64,7 +62,7 @@ public class UsersList {
     public void importFile() {
         for (Enumeration e = properties.keys(); e.hasMoreElements();) {
             Object obj = e.nextElement();
-//            System.out.println(obj + ": " + properties.getProperty(obj.toString()));
+            System.err.println(obj + ": " + properties.getProperty(obj.toString()));
             this.list.put(obj.toString(), new User(obj.toString(), this.properties.getProperty(obj.toString())));
         }
     }

@@ -25,7 +25,6 @@ public class Server {
             server = new ServerSocket(PORT);
             waitForConnection1();
             waitForConnection2();
-            new ConnectionThread(connection1, connection2);
         } catch (IOException e) {
             e.printStackTrace();
         }finally{

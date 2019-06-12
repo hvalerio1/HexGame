@@ -66,7 +66,6 @@ public class Login extends javax.swing.JDialog {
 
         btNext.setBackground(new java.awt.Color(0, 0, 255));
         btNext.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
-        btNext.setForeground(new java.awt.Color(0, 0, 0));
         btNext.setText("Iniciar Sesion");
         btNext.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btNext.addActionListener(new java.awt.event.ActionListener() {

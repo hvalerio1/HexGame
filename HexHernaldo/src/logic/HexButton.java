@@ -7,8 +7,6 @@ package logic;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.Polygon;
@@ -58,11 +56,7 @@ public class HexButton extends JButton implements ActionListener{
         this.calculateBounds();
         this.setBackground(Color.white);
         this.setForeground(Color.RED);
-        this.character = character;
         this.clicked = false;
-        this.setOpaque(true);
-        this.setBorderPainted(true);
-        this.setContentAreaFilled(false);
         this.setSize(40, 40);
         addActionListener((ActionListener) this);
         this.a = 0;

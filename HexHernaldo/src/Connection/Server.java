@@ -21,14 +21,16 @@ public class Server {
     private DataOutputStream output;
     private ServerSocket server;
     private Socket connection1;
-    private Socket connection2;
-    private final int PORT = 12345;
+    private final int PORT = 1234;
 
     public void runServer() {
         try {
             server = new ServerSocket(PORT);
-            waitForConnection1();
-            waitForConnection2();
+            for (int i = 0; i < 2; i++) {
+                waitForConnection();
+                getStreams();
+                process();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -36,22 +38,20 @@ public class Server {
         }
     }
 
-    private void waitForConnection1() throws IOException {
-        System.out.println("Esperando connecion del jugador1");
+    private void waitForConnection() throws IOException {
+        System.out.println("Esperando connecion ");
         connection1 = server.accept();
         System.out.println("Jugador1 conectado.");
-    }
-
-    private void waitForConnection2() throws IOException {
-        System.out.println("Esperando coneccion del jugador2.");
-        connection2 = server.accept();
-        System.out.println("Jugador2 conectado.");
     }
 
     private void getStreams() throws IOException {
         input = new DataInputStream(connection1.getInputStream());
         output = new DataOutputStream(connection1.getOutputStream());
         output.flush();
+    }
+
+    private void process() throws IOException {
+
     }
 
     private void closeServer() {

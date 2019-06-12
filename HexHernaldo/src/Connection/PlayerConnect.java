@@ -9,6 +9,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import ui.Index;
 
 /**
  *
@@ -23,23 +24,19 @@ public class PlayerConnect {
     private Socket client1;
     private Socket client2;
     private final String HOST = "127.0.0.1";
-    private final int PORT = 12345;
+    private final int PORT = 1234;
     private boolean play1 = false;
     private boolean play2 = false;
 
     public void runClient() {
         try {
             connectToServer1();
-            connectToServer2();
-            while(play1 = true){
-                processConnection();
-            }
             getStreams();
+            processConnection();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
             closeConnection1();
-            closeConnection2();
         }
 
     }
@@ -48,27 +45,21 @@ public class PlayerConnect {
         System.out.println("<<Conectando al servidor>>");
         client1 = new Socket(HOST, PORT);
         play1 = true;
-        System.out.println("Se ha conectado al servidor el jugador 1.");
-    }
-
-    private void connectToServer2() throws IOException {
-        System.out.println("<<Conectando al servidor>>");
-        client2 = new Socket(HOST, PORT);
-        play2 = true;
-        System.out.println("Se ha conectado al servidor el jugador 1.");
+        System.out.println("Se ha conectado al servidor el jugador.");
     }
 
     private void getStreams() throws IOException {
         input1 = new DataInputStream(client1.getInputStream());
         output1 = new DataOutputStream(client1.getOutputStream());
         output1.flush();
-        input2 = new DataInputStream(client1.getInputStream());
-        output2 = new DataOutputStream(client1.getOutputStream());
-        output2.flush();
+//        input2 = new DataInputStream(client1.getInputStream());
+//        output2 = new DataOutputStream(client1.getOutputStream());
+//        output2.flush();
     }
 
-    private void processConnection() {
-        
+    private void processConnection() throws IOException {
+        Index index = new Index();
+        index.setVisible(true);
     }
 
     private void closeConnection1() {
@@ -80,15 +71,14 @@ public class PlayerConnect {
         }
     }
 
-    private void closeConnection2() {
-        try {
-            client2.close();
-            System.out.println("Se ha desconectado el cliente.");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
+//    private void closeConnection2() {
+//        try {
+//            client2.close();
+//            System.out.println("Se ha desconectado el cliente.");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
     public static void main(String[] args) {
         new PlayerConnect().runClient();
     }

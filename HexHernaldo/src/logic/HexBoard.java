@@ -85,25 +85,95 @@ public class HexBoard {
         boolean flag = false;
         for (int k = 0; k < aux.length; k++) {
             if (aux[k] == 1) {
-                
+                checkAround(i, j);                                
             }
         }
         return flag;
     }
-    /*Posiciones vecinas de la primera fila 
-        (0,0) => (i, j+1), (i+1, j)
-        (0,?) => (i, j-1),(i, j+1),(i+1),(i+1, j)
-        (0,size) => (i, j-1),(i+1, j-1),(i+1, j)
-    */  
-    /*Posiciones vecinas de la siguiente fila
-        (1,0) => (i-1, j), (i-1, j+1), (i, j+1), (i+1, j)
-        (1,?) => (i-1, j), (i-1, j+1), (i, j-1), (i, j+1), (1+1, j-1), (i+1, j)
-        (1,size) => (i-1, j), (i-1, j+1), (i, j+1), (i+1, j)  
-    */
-    /*Posiciones de la ultima fila
-        (size, 0) => (i-1, j), (i-1, j+1), (i, j+1)
-        (size, ?) => (i-1, j), (i-1, j+1), (i, j-1), (i, j+1) 
-        (size, size) => (i-1, j), (i, j-1)
-    */
-    //Posiciones no vecinas (i-1 j-1), (i+1 j+1)
+    
+    public boolean checkAround(int i, int j){        
+        if (this.checkNorthwest(i, j)) {
+            return true;
+        }
+        if (this.checkNorth(i, j)) {
+            return true;
+        }
+        if (this.checkNorthEast(i, j)) {
+            return true;
+        }
+        if (this.checkWest(i, j)) {
+            return true;
+        }
+        if (this.checkThis(i, j)) {
+            return true;
+        }
+        if (this.checkSouthWest(i, j)) {
+            return true;
+        }        
+        if (this.checkSouth(i, j)) {
+            return true;
+        }
+        if (this.checkSouthEast(i, j)) {
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean checkNorthwest(int i, int j){
+        if (board[i-1][j-1] == 1) {
+            return true;
+        }
+        return false;
+    }    
+    
+    public boolean checkNorth(int i, int j){
+        if (board[i-1][j-1] == 1) {
+            return true;
+        }
+        return false;
+    }    
+    
+    public boolean checkNorthEast(int i, int j){
+        if (board[i-1][j-1] == 1) {
+            return true;
+        }
+        return false;
+    }    
+    
+    public boolean checkWest(int i, int j){
+        if (board[i-1][j-1] == 1) {
+            return true;
+        }
+        return false;
+    }    
+    
+    public boolean checkThis(int i, int j){
+        if (board[i-1][j-1] == 1) {
+            return true;
+        }
+        return false;
+    }    
+    
+    public boolean checkSouthWest(int i, int j){
+        if (board[i-1][j-1] == 1) {
+            return true;
+        }
+        return false;
+    }    
+    
+    public boolean checkSouth(int i, int j){
+        if (board[i-1][j-1] == 1) {
+            return true;
+        }
+        return false;
+    }    
+    
+    public boolean checkSouthEast(int i, int j){
+        if (board[i-1][j-1] == 1) {
+            return true;
+        }
+        return false;
+    }    
+    
+    
 }

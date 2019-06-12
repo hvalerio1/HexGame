@@ -1,5 +1,6 @@
-
 package ui;
+
+import Connection.Server;
 
 /*
  * @author Jenner Rodriguez
@@ -141,11 +142,15 @@ public class Index extends javax.swing.JFrame {
     private void btLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLoginActionPerformed
         Login login = new Login(this, true);
         login.setVisible(true);
+        Server server = new Server();
+        server.runServer();
     }//GEN-LAST:event_btLoginActionPerformed
 
     private void btSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSignInActionPerformed
         SigIn sig = new SigIn(this, true);
         sig.setVisible(true);
+        Server server = new Server();
+        server.runServer();
     }//GEN-LAST:event_btSignInActionPerformed
 
 

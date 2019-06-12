@@ -1,9 +1,9 @@
-
 package ui;
 
-import BuildUser.DirectorBuilder;
 import BuildUser.User;
 import BuildUser.UsersList;
+import Connection.PlayerConnect;
+import Connection.Server;
 import javax.swing.JOptionPane;
 import org.apache.commons.codec.digest.DigestUtils;
 
@@ -125,17 +125,21 @@ public class Login extends javax.swing.JDialog {
         list.importFile();
         User newUser = new User(this.txtUsername.getText(), DigestUtils.md5Hex(this.txtPassword.getText()));
         try {
-            if(list.findUserLogin(newUser)) {
+            if (list.findUserLogin(newUser)) {
                 JOptionPane.showMessageDialog(null, "Bienvenido");
                 this.setVisible(false);
                 Matriz matriz = new Matriz(null, true);
                 matriz.setVisible(true);
+                PlayerConnect player1 = new PlayerConnect();
+                player1.connectToServer1();
             } else {
                 JOptionPane.showMessageDialog(null, "No encontrado");
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
+
+
     }//GEN-LAST:event_btNextActionPerformed
 
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed

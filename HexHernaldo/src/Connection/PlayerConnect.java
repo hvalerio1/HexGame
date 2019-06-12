@@ -31,6 +31,9 @@ public class PlayerConnect {
         try {
             connectToServer1();
             connectToServer2();
+            while(play1 = true){
+                processConnection();
+            }
             getStreams();
         } catch (IOException e) {
             e.printStackTrace();
@@ -41,7 +44,7 @@ public class PlayerConnect {
 
     }
 
-    private void connectToServer1() throws IOException {
+    public void connectToServer1() throws IOException {
         System.out.println("<<Conectando al servidor>>");
         client1 = new Socket(HOST, PORT);
         play1 = true;

@@ -1,8 +1,9 @@
-
 package ui;
 
 import BuildUser.DirectorBuilder;
 import BuildUser.*;
+import Connection.PlayerConnect;
+import Connection.Server;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -17,7 +18,7 @@ public class SigIn extends javax.swing.JDialog {
     public SigIn(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setLocationRelativeTo(null);        
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -37,7 +38,6 @@ public class SigIn extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -53,7 +53,7 @@ public class SigIn extends javax.swing.JDialog {
             }
         });
         jPnl_signin.add(inicioBoton);
-        inicioBoton.setBounds(140, 190, 75, 40);
+        inicioBoton.setBounds(140, 190, 77, 33);
 
         passwordTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,7 +61,7 @@ public class SigIn extends javax.swing.JDialog {
             }
         });
         jPnl_signin.add(passwordTextField);
-        passwordTextField.setBounds(140, 110, 149, 24);
+        passwordTextField.setBounds(140, 110, 149, 20);
 
         userNameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,7 +69,7 @@ public class SigIn extends javax.swing.JDialog {
             }
         });
         jPnl_signin.add(userNameText);
-        userNameText.setBounds(140, 70, 149, 24);
+        userNameText.setBounds(140, 70, 149, 20);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 255));
@@ -89,28 +89,21 @@ public class SigIn extends javax.swing.JDialog {
         jPnl_signin.add(jLabel1);
         jLabel1.setBounds(30, 10, 178, 43);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/estrellas-en-el-cielo.jpg"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        jLabel4.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        jLabel4.setOpaque(true);
-        jPnl_signin.add(jLabel4);
-        jLabel4.setBounds(10, 0, 370, 270);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(23, 23, 23)
                 .addComponent(jPnl_signin, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(28, 28, 28)
                 .addComponent(jPnl_signin, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         pack();
@@ -130,6 +123,8 @@ public class SigIn extends javax.swing.JDialog {
             list.addUser(newUser);
             Matriz matriz = new Matriz(null, true);
             matriz.setVisible(true);
+            PlayerConnect player1 = new PlayerConnect();
+            player1.runClient();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
@@ -187,7 +182,6 @@ public class SigIn extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPnl_signin;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField passwordTextField;

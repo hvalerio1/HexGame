@@ -3,7 +3,8 @@ package logic;
 
 
 /*
- * @author Estudiante
+ * @author VAVIRO
+
  */
 public class HexBoard {
 

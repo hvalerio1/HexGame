@@ -5,7 +5,8 @@
  */
 package Connection;
 
-
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -15,47 +16,54 @@ import java.net.Socket;
  * @author Jenner Rodriguez
  */
 public class Server {
+
+    private DataInputStream input;
+    private DataOutputStream output;
     private ServerSocket server;
     private Socket connection1;
     private Socket connection2;
     private final int PORT = 12345;
-    
-    public void runServer(){
+
+    public void runServer() {
         try {
             server = new ServerSocket(PORT);
             waitForConnection1();
             waitForConnection2();
         } catch (IOException e) {
             e.printStackTrace();
-        }finally{
+        } finally {
             closeServer();
         }
     }
-    
-    
-    private void waitForConnection1() throws IOException{
+
+    private void waitForConnection1() throws IOException {
         System.out.println("Esperando connecion del jugador1");
         connection1 = server.accept();
         System.out.println("Jugador1 conectado.");
     }
-    
-    
-    private void waitForConnection2() throws IOException{
+
+    private void waitForConnection2() throws IOException {
         System.out.println("Esperando coneccion del jugador2.");
         connection2 = server.accept();
         System.out.println("Jugador2 conectado.");
     }
-    
-    private void closeServer(){
+
+    private void getStreams() throws IOException {
+        input = new DataInputStream(connection1.getInputStream());
+        output = new DataOutputStream(connection1.getOutputStream());
+        output.flush();
+    }
+
+    private void closeServer() {
         try {
             server.close();
             System.out.println("Se cerró el servidor.");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
+
     }
-    
+
     public static void main(String[] args) {
         new Server().runServer();
     }

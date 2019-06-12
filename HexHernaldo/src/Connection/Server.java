@@ -5,11 +5,13 @@
  */
 package Connection;
 
+import com.sun.prism.paint.Color;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import logic.HexButton;
 
 /**
  *
@@ -22,6 +24,7 @@ public class Server {
     private ServerSocket server;
     private Socket connection1;
     private final int PORT = 1234;
+        
 
     public void runServer() {
         try {
@@ -51,7 +54,7 @@ public class Server {
     }
 
     private void process() throws IOException {
-
+        HexButton.setColor(java.awt.Color.BLUE);
     }
 
     private void closeServer() {

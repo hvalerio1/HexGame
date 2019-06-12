@@ -72,9 +72,13 @@ public class HexNode {
     public void setDown_right(HexNode down_right) {
         this.down_right = down_right;
     }
-    
-    
 
+    public boolean isActive() {
+        return active;
+    }
 
-    
+    public void setActive(boolean active) {
+        this.active = active;
+    }           
+ 
 }

@@ -5,10 +5,12 @@
  */
 package Connection;
 
+import java.awt.Color;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import logic.HexButton;
 import ui.Index;
 
 /**
@@ -60,6 +62,7 @@ public class PlayerConnect {
     private void processConnection() throws IOException {
         Index index = new Index();
         index.setVisible(true);
+        HexButton.setColor(Color.RED);
     }
 
     private void closeConnection1() {

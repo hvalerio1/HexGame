@@ -121,10 +121,12 @@ public class SigIn extends javax.swing.JDialog {
         try {
             newUser = director.createUser(null, list, this.userNameText.getText(), this.passwordTextField.getText());
             list.addUser(newUser);
-            Matriz matriz = new Matriz(null, true);
-            matriz.setVisible(true);
             PlayerConnect player1 = new PlayerConnect();
             player1.runClient();
+            if (Server.getAccount() == 2) {
+                Matriz matriz = new Matriz(null, true);
+                matriz.setVisible(true);
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }

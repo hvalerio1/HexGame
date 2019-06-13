@@ -162,6 +162,7 @@ public class Matriz extends javax.swing.JDialog {
 
     private void bt_JugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_JugarActionPerformed
         // TODO add your handling code here:
+        bt_CambiarTam.setVisible(false);
     }//GEN-LAST:event_bt_JugarActionPerformed
 
     private void bt_CambiarTamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_CambiarTamActionPerformed

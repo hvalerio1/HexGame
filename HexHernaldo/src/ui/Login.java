@@ -126,16 +126,12 @@ public class Login extends javax.swing.JDialog {
         User newUser = new User(this.txtUsername.getText(), DigestUtils.md5Hex(this.txtPassword.getText()));
         try {
             if (list.findUserLogin(newUser)) {
-                JOptionPane.showMessageDialog(null, "Bienvenido");
-                this.setVisible(false);
                 PlayerConnect player = new PlayerConnect();
                 player.runClient();
-                if (Server.isPlay1() && PlayerConnect.isPlay2()) {
-                    Matriz matriz = new Matriz(null, true);
-                    matriz.setVisible(true);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Esperando al otro jugador.");
-                }
+                this.setVisible(false);
+                JOptionPane.showMessageDialog(null, "Bienvenido");
+                Matriz matriz = new Matriz(null, true);
+                matriz.setVisible(true);
 
             } else {
                 JOptionPane.showMessageDialog(null, "No encontrado");

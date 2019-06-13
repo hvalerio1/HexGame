@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Connection;
+package Connection2;
 
 import java.awt.Color;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import javax.swing.JOptionPane;
 import logic.HexButton;
 
 /**
@@ -21,8 +22,10 @@ public class PlayerConnect {
     private DataInputStream input1;
     private DataOutputStream output1;
     private Socket client1;
+    private Socket client2;
     private final String HOST = "127.0.0.1";
     private final int PORT = 1234;
+    private static boolean play1 = false;
     private static boolean play2 = false;
 
     public static boolean isPlay2() {
@@ -45,6 +48,7 @@ public class PlayerConnect {
     public void connectToServer1() throws IOException {
         System.out.println("<<Conectando al servidor>>");
         client1 = new Socket(HOST, PORT);
+        JOptionPane.showMessageDialog(null, "Usted es el jugador numero 1, sus fichas son las de color rojo.");
         System.out.println("Se ha conectado al servidor el jugador.");
     }
 

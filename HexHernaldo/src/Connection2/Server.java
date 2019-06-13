@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Connection;
+package Connection2;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -22,6 +22,7 @@ public class Server {
     private DataOutputStream output;
     private ServerSocket server;
     private Socket connection1;
+    private Socket connection2;
     private static boolean play1 = false;
     private static boolean play2 = false;
     private final int PORT = 1234;
@@ -36,6 +37,7 @@ public class Server {
             for (int i = 0; i < 2; i++) {
                 try {
                     waitForConnection();
+                    waitForConnection2();
                     getStreams();
                     process();
                 } catch (IOException e) {
@@ -58,12 +60,12 @@ public class Server {
         System.out.println("Jugador conectado.");
     }
 
-//    private void waitForConnection2() throws IOException {
-//        System.out.println("Esperando connecion ");
-//        connection2 = server.accept();
-//        play2 = true;
-//        System.out.println("Jugador 2 conectado.");
-//    }
+    private void waitForConnection2() throws IOException {
+        System.out.println("Esperando connecion ");
+        connection2 = server.accept();
+        play2 = true;
+        System.out.println("Jugador 2 conectado.");
+    }
     
     private void getStreams() throws IOException {
         input = new DataInputStream(connection1.getInputStream());

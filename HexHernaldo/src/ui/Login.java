@@ -129,9 +129,13 @@ public class Login extends javax.swing.JDialog {
                 PlayerConnect player = new PlayerConnect();
                 player.runClient();
                 this.setVisible(false);
-                JOptionPane.showMessageDialog(null, "Bienvenido");
+                if(Server.getAccount() == 2){
+                    
                 Matriz matriz = new Matriz(null, true);
                 matriz.setVisible(true);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Esperando otro jugador");
+                }
 
             } else {
                 JOptionPane.showMessageDialog(null, "No encontrado");

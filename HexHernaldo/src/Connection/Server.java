@@ -23,27 +23,33 @@ public class Server {
     private ServerSocket server;
     private Socket connection1;
     private static boolean play1 = false;
-    private static boolean play2 = false;
     private final int PORT = 1234;
+    private static int account = 0;
 
     public static boolean isPlay1() {
         return play1;
     }
 
+    public static int getAccount() {
+        return account;
+    }
+
     public void runServer() {
         try {
             server = new ServerSocket(PORT);
-            for (int i = 0; i < 2; i++) {
-                try {
+
+            try {
+                for (int i = 0; i < 2; i++) {
                     waitForConnection();
                     getStreams();
                     process();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }finally{
-                    closeConnection();
                 }
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                closeConnection();
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -54,8 +60,11 @@ public class Server {
     private void waitForConnection() throws IOException {
         System.out.println("Esperando connecion ");
         connection1 = server.accept();
+        account++;
+        System.out.println(account);
         play1 = true;
         System.out.println("Jugador conectado.");
+
     }
 
 //    private void waitForConnection2() throws IOException {
@@ -64,7 +73,6 @@ public class Server {
 //        play2 = true;
 //        System.out.println("Jugador 2 conectado.");
 //    }
-    
     private void getStreams() throws IOException {
         input = new DataInputStream(connection1.getInputStream());
         output = new DataOutputStream(connection1.getOutputStream());
@@ -84,8 +92,8 @@ public class Server {
         }
 
     }
-    
-    private void closeConnection(){
+
+    private void closeConnection() {
         try {
             connection1.close();
         } catch (IOException e) {

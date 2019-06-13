@@ -20,15 +20,15 @@ import javax.swing.JButton;
  * @author mi pc
  * @version June 08, 2019
  */
-public class HexButton extends JButton implements ActionListener{
+public class HexButton extends JButton implements ActionListener {
 
     private static final long serialVersionUID = 8703517515706326251L;
     Polygon bounds;
     Character character;
     Boolean clicked;
-    
-    static Color color;    
-    
+
+    static Color color;
+
     private int a;
     private int b;
 
@@ -46,7 +46,7 @@ public class HexButton extends JButton implements ActionListener{
 
     public void setB(int b) {
         this.b = b;
-    }        
+    }
 
     public Color getColor() {
         return color;
@@ -55,11 +55,11 @@ public class HexButton extends JButton implements ActionListener{
     public static void setColor(Color color) {
         color = color;
     }
-    
-    public HexButton(Color color){
+
+    public HexButton(Color color) {
         this.color = color;
     }
-        
+
     /**
      * Creates a hexagonal button with a single character label
      *
@@ -70,12 +70,14 @@ public class HexButton extends JButton implements ActionListener{
         this.setBackground(Color.white);
         this.setForeground(Color.RED);
         this.clicked = false;
+        this.setOpaque(true);
+        this.setBorderPainted(false);
+        this.setContentAreaFilled(false);
         this.setSize(40, 40);
         addActionListener((ActionListener) this);
         this.a = 0;
         this.b = 0;
-    }       
-  
+    }
 
     /**
      * Creates a hexagon of certain height / width and ratio multiplier
@@ -197,13 +199,13 @@ public class HexButton extends JButton implements ActionListener{
     public Boolean isClicked() {
         return this.clicked;
     }
-    
+
     //Editar este metodo para que cuando sea jugador 1 marque en azul, y jugador 2 marque en rojo
     @Override
     public void actionPerformed(ActionEvent e) {
         //Se asigna el color de fondo azul
-        setBackground(color);        
-        HexBoard.addHexFile(this);        
+        setBackground(color);
+        HexBoard.addHexFile(this);
     }
 
 }

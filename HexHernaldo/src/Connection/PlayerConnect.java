@@ -31,16 +31,13 @@ public class PlayerConnect {
 
     public void runClient() {
         try {
-
-            for (int i = 0; i < 2; i++) {
-                connectToServer1();
-                getStreams();
-                processConnection();
-            }
+            connectToServer1();
+            getStreams();
+            processConnection();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            
+            closeConnection1();
         }
 
     }

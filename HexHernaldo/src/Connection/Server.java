@@ -24,7 +24,6 @@ public class Server {
     private DataOutputStream output;
     private ServerSocket server;
     private Socket connection1;
-    private Socket connection2;
     private static boolean play1 = false;
     private final int PORT = 1234;
 

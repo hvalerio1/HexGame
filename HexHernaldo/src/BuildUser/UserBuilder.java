@@ -2,6 +2,8 @@
 package BuildUser;
 
 import com.sun.net.httpserver.Filter;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.apache.commons.codec.digest.DigestUtils;
 
 /*
@@ -24,14 +26,14 @@ public class UserBuilder implements InterfaceBuilder {
         if (name == null) {
             throw new BuilderException("No se ha ingresado ningún nombre");
         }
-        if(hasSpecialsCharacters(name)) {
+        if(validedName(name)) {
             throw new BuilderException("El nombre solo puede tener letras y números");
         }
         if (!Character.isLetter(name.charAt(0))) {
             throw new BuilderException("El primer caracter del nombre debe de ser una letra");
         }
-        if (name.length() < 4 || name.length() > 8) {
-            throw new BuilderException("El nombre debe tener entre 4 y 8 caracteres");
+        if (name.length() < 4 || name.length() > 6) {
+            throw new BuilderException("El nombre debe tener entre 4 y 6 caracteres");
         }
         this.newUser.setName(name);
     }
@@ -51,7 +53,7 @@ public class UserBuilder implements InterfaceBuilder {
         if (password.length() < 4 || password.length() > 8) {
             throw new BuilderException("La contraseña debe tener entre 4 y 8 caracteres\n");
         }
-        if(hasSpecialsCharacters(password)) {
+        if(validedPassword(password)) {
             throw new BuilderException("La contraseña solo puede tener letras y números\n");
         }
         this.newUser.setPassword(DigestUtils.md5Hex(password));
@@ -75,5 +77,19 @@ public class UserBuilder implements InterfaceBuilder {
             }
         }
         return false;
+    }
+    
+    public boolean validedPassword(String text) {
+        String validation = "^[a-zA-Z0-9]{4,8}$";
+        Pattern pattern = Pattern.compile(validation);
+        Matcher regexMatcher = pattern.matcher(text);
+        return regexMatcher.matches();
+    }
+    
+    public boolean validedName(String text) {
+        String validation = "^[a-zA-Z0-9]{4,6}$";
+        Pattern pattern = Pattern.compile(validation);
+        Matcher regexMatcher = pattern.matcher(text);
+        return regexMatcher.matches();
     }
 }

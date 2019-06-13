@@ -53,7 +53,7 @@ public class SigIn extends javax.swing.JDialog {
             }
         });
         jPnl_signin.add(inicioBoton);
-        inicioBoton.setBounds(140, 190, 77, 33);
+        inicioBoton.setBounds(140, 190, 75, 40);
 
         passwordTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,7 +61,7 @@ public class SigIn extends javax.swing.JDialog {
             }
         });
         jPnl_signin.add(passwordTextField);
-        passwordTextField.setBounds(140, 110, 149, 20);
+        passwordTextField.setBounds(140, 120, 160, 30);
 
         userNameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,13 +69,13 @@ public class SigIn extends javax.swing.JDialog {
             }
         });
         jPnl_signin.add(userNameText);
-        userNameText.setBounds(140, 70, 149, 20);
+        userNameText.setBounds(140, 70, 160, 30);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 255));
         jLabel3.setText("Contraseña");
         jPnl_signin.add(jLabel3);
-        jLabel3.setBounds(30, 110, 93, 24);
+        jLabel3.setBounds(30, 120, 93, 24);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 2, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 255));

@@ -45,7 +45,6 @@ public class PlayerConnect {
     public void connectToServer1() throws IOException {
         System.out.println("<<Conectando al servidor>>");
         client1 = new Socket(HOST, PORT);
-        play2 = true;
         System.out.println("Se ha conectado al servidor el jugador.");
     }
 
@@ -53,9 +52,6 @@ public class PlayerConnect {
         input1 = new DataInputStream(client1.getInputStream());
         output1 = new DataOutputStream(client1.getOutputStream());
         output1.flush();
-//        input2 = new DataInputStream(client1.getInputStream());
-//        output2 = new DataOutputStream(client1.getOutputStream());
-//        output2.flush();
     }
 
     private void processConnection() throws IOException {

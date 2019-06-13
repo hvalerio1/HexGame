@@ -24,7 +24,9 @@ public class Server {
     private DataOutputStream output;
     private ServerSocket server;
     private Socket connection1;
+    private Socket connection2;
     private static boolean play1 = false;
+    private static boolean play2 = false;
     private final int PORT = 1234;
 
     public static boolean isPlay1() {
@@ -36,6 +38,7 @@ public class Server {
             server = new ServerSocket(PORT);
             for (int i = 0; i < 2; i++) {
                 waitForConnection();
+//                waitForConnection2();
                 getStreams();
                 process();
             }

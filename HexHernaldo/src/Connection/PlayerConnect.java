@@ -11,7 +11,6 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import logic.HexButton;
-import ui.Index;
 
 /**
  *
@@ -21,24 +20,27 @@ public class PlayerConnect {
 
     private DataInputStream input1;
     private DataOutputStream output1;
-    private DataInputStream input2;
-    private DataOutputStream output2;
     private Socket client1;
-    private Socket client2;
     private final String HOST = "127.0.0.1";
     private final int PORT = 1234;
-    private boolean play1 = false;
-    private boolean play2 = false;
+    private static boolean play2 = false;
+
+    public static boolean isPlay2() {
+        return play2;
+    }
 
     public void runClient() {
         try {
-            connectToServer1();
-            getStreams();
-            processConnection();
+
+            for (int i = 0; i < 2; i++) {
+                connectToServer1();
+                getStreams();
+                processConnection();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            closeConnection1();
+            
         }
 
     }
@@ -46,7 +48,7 @@ public class PlayerConnect {
     public void connectToServer1() throws IOException {
         System.out.println("<<Conectando al servidor>>");
         client1 = new Socket(HOST, PORT);
-        play1 = true;
+        play2 = true;
         System.out.println("Se ha conectado al servidor el jugador.");
     }
 
@@ -60,8 +62,7 @@ public class PlayerConnect {
     }
 
     private void processConnection() throws IOException {
-        Index index = new Index();
-        index.setVisible(true);
+
         HexButton.setColor(Color.RED);
     }
 

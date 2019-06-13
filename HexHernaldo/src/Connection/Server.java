@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import logic.HexButton;
+import ui.Matriz;
 
 /**
  *
@@ -23,8 +24,13 @@ public class Server {
     private DataOutputStream output;
     private ServerSocket server;
     private Socket connection1;
+    private Socket connection2;
+    private static boolean play1 = false;
     private final int PORT = 1234;
-        
+
+    public static boolean isPlay1() {
+        return play1;
+    }
 
     public void runServer() {
         try {
@@ -44,9 +50,16 @@ public class Server {
     private void waitForConnection() throws IOException {
         System.out.println("Esperando connecion ");
         connection1 = server.accept();
-        System.out.println("Jugador1 conectado.");
+        play1 = true;
+        System.out.println("Jugador conectado.");
     }
 
+//    private void waitForConnection2() throws IOException {
+//        System.out.println("Esperando connecion ");
+//        connection2 = server.accept();
+//        play2 = true;
+//        System.out.println("Jugador 2 conectado.");
+//    }
     private void getStreams() throws IOException {
         input = new DataInputStream(connection1.getInputStream());
         output = new DataOutputStream(connection1.getOutputStream());

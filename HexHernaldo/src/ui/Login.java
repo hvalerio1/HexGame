@@ -12,8 +12,6 @@ import org.apache.commons.codec.digest.DigestUtils;
  * @author Vindas
  */
 public class Login extends javax.swing.JDialog {
-    
-    private PlayerConnect player;
 
     /**
      * Creates new form Login2
@@ -130,10 +128,15 @@ public class Login extends javax.swing.JDialog {
             if (list.findUserLogin(newUser)) {
                 JOptionPane.showMessageDialog(null, "Bienvenido");
                 this.setVisible(false);
-                
-                System.out.println("Conectado");
-                Matriz matriz = new Matriz(null, true);
-                matriz.setVisible(true);
+                PlayerConnect player = new PlayerConnect();
+                player.runClient();
+                if (Server.isPlay1() && PlayerConnect.isPlay2()) {
+                    Matriz matriz = new Matriz(null, true);
+                    matriz.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Esperando al otro jugador.");
+                }
+
             } else {
                 JOptionPane.showMessageDialog(null, "No encontrado");
             }
